@@ -37,13 +37,24 @@ body{
 	text-align: center;
 }
 
-.day .btn img{
-	width: 31.41%;
-}
+.day .btn img{width: 31.41%;}
 
-.day.day_01 .btn{
-	top: 72%;	
-}
+.day.day_01 .btn{top: 72%;}
+.day.day_02 .btn{top: 85%;}
+.day.day_02 .btn.btn_video{top: 22.7%;}
+.day.day_03 .btn{top: 72%;}
+.day.day_04 .btn{top: 72%;}
+.day.day_05 .btn{top: 75%;}
+.day.day_06 .btn{top: 90%;}
+.day.day_07 .btn{top: 72%;}
+.day.day_08 .btn{top: 82%;}
+.day.day_08 .btn.btn_video{top: 32%;}
+.day.day_09 .btn{top: 72%;}
+.day.day_10 .btn{top: 86%;}
+.day.day_10 .btn.btn_video{top: 25%;}
+.day.day_11 .btn{top: 72%;}
+.day.day_12 .btn{top: 82%;}
+/***** HOME ****** */
 
 #home {
 	background-color: #2d2d2d;

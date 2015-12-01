@@ -1,1 +1,8 @@
+$(function() { 
 
+	$('a').click(function(e){
+		e.preventDefault();
+		alert('CTA Click !!!')
+	})
+
+})
