@@ -1,5 +1,7 @@
 <?php
+
 function get_page() {
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -25,8 +27,8 @@ function get_page() {
 			<div class="hours">
 				<label class="custom-select">
 					<select id="cboHours">
-						<option value="0900">9:00 AM</option>
-						<option value="0930">9:30 AM</option>
+						<option value="900">9:00 AM</option>
+						<option value="930">9:30 AM</option>
 						<option value="1000">10:00 AM</option>
 						<option value="1030">10:30 AM</option>
 						<option value="1100">11:00 AM</option>
@@ -60,7 +62,7 @@ function get_page() {
 			</div>
 
 			<div class="add_button">
-				<a href="http://localhost/calendar/get/0900" id="btnAddCalendar">
+				<a href="<?php echo $GLOBALS["url"]; ?>get/0900" id="btnAddCalendar">
 					<img src="img/btn_add_calendar.png">
 				</a>
 			</div>
@@ -75,7 +77,7 @@ function get_page() {
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
+		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
 		<script src="js/main.js"></script>
 	</body>
 </html>
@@ -161,8 +163,8 @@ function get_calendar($hour) {
 
 	$startDate = '20151212';
 
-	$start = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone("AMERICA/MONTERREY"));
-	$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('AMERICA/MONTERREY')); 
+	$start = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone("UTC"));
+	$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 
 	$today->add(new DateInterval('P1D'));
 
 
@@ -175,6 +177,10 @@ function get_calendar($hour) {
 
 	$totaldays = 12 - $diffdays;
 
+	$time = $_GET['tz'];
+	$tz = $time * (-100);
+
+	$hour = sprintf('%04d', ($hour + $tz));
 
 	download($startDate,$totaldays,$hour,$title,$description);
 }

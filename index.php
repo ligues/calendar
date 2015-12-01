@@ -4,6 +4,8 @@ session_start();
 
 header('Content-Type: text/html; charset=utf-8');
 
+$url = "http://localhost/calendar/";
+
 require_once("page.php");
 
 $requestURI = explode('/', $_SERVER['REQUEST_URI']);

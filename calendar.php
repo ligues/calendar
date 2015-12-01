@@ -32,7 +32,7 @@ CALSCALE:GREGORIAN
 		
 		$day = $sd->format("d");
 
-		$sd->setTimezone(new DateTimeZone('AMERICA/MONTERREY'));
+		$sd->setTimezone(new DateTimeZone('UTC'));
 		 
 		// - Set to UTC ICAL FORMAT -
 		$stime = $sd->format('Ymd').'T'.$hour.'00Z';
@@ -47,7 +47,7 @@ UID:<?= uniqid() ?>
 
 DESCRIPTION:<?= escapeString($descriptions[$i]) ?>
 
-URL;VALUE=URI:<?= escapeString("http://localhost/calendar/".$day) ?>
+URL;VALUE=URI:<?= escapeString($GLOBALS["url"].$day) ?>
 
 SUMMARY:<?= escapeString($titles[$i]) ?>
 
