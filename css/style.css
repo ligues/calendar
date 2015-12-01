@@ -1,4 +1,5 @@
 html{
+	font-family: 'omnes_att_iimedium', "Helvetica", "Arial", sans-serif;
 	height: 100%;
 	min-height: 100%;
 }
@@ -41,5 +42,59 @@ body{
 }
 
 .day.day_01 .btn{
-	top: 72%;
+	top: 72%;	
+}
+
+#home {
+	background-color: #2d2d2d;
+	
+}
+
+#home .wrapper{
+	margin: 0 auto;
+	background-image: url('../img/background.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 640px;
+	height: 1028px;
+}
+
+#home label.custom-select {
+    position: relative;
+    display: inline-block;
+
+}
+
+#home .custom-select select {
+    display: inline-block;
+    width: 300px;
+    padding: 4px 3px 3px 5px;
+    margin: 0 auto;
+    font: inherit;
+    font-size: 24px;
+    outline:none; /* remove focus ring from Webkit */
+    line-height: 1.2;
+    background: #fff;
+    color:#040404;
+    height: 54px;
+    border:solid 1px #fa6a00;
+    border-radius: none;
+}
+
+/* Select arrow styling */
+#home .custom-select:after {
+    content: url('../img/dropdown.png');
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    pointer-events: none;
+}
+
+#home .no-pointer-events .custom-select:after {
+    content: none;
 }

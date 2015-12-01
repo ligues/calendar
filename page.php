@@ -12,13 +12,50 @@ function get_page() {
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/fonts/style.css">
         <link rel="stylesheet" href="css/style.css">
+
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
-    <body>
+    <body id="home">
 
-        <p>Home</p>
+        <div class="wrapper">
+            <label class="custom-select">
+                <select>
+                    <option>9:00 AM</option>
+                    <option>9:30 AM</option>
+                    <option>10:00 AM</option>
+                    <option>10:30 AM</option>
+                    <option>11:00 AM</option>
+                    <option>11:30 AM</option>
+                    <option>12:00 PM</option>
+                    <option>12:30 PM</option>
+                    <option>1:00 PM</option>
+                    <option>1:30 PM</option>
+                    <option>2:00 PM</option>
+                    <option>2:30 PM</option>
+                    <option>3:00 PM</option>
+                    <option>3:30 PM</option>
+                    <option>4:00 PM</option>
+                    <option>4:30 PM</option>
+                    <option>5:00 PM</option>
+                    <option>5:30 PM</option>
+                    <option>6:00 PM</option>
+                    <option>6:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>7:30 PM</option>
+                    <option>8:00 PM</option>
+                    <option>8:30 PM</option>
+                    <option>9:00 PM</option>
+                    <option>9:30 PM</option>
+                    <option>10:00 PM</option>
+                    <option>10:30 PM</option>
+                    <option>11:00 PM</option>
+                    <option>11:30 PM</option>
+                </select>
+            </label>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
@@ -45,6 +82,7 @@ function get_day($day) {
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/fonts/style.css">
         <link rel="stylesheet" href="css/style.css">
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
