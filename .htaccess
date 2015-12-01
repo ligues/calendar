@@ -1,0 +1,8 @@
+Options +FollowSymLinks
+# Turn on the RewriteEngine
+RewriteEngine On
+#  Rules
+RewriteCond $1 !^(index.php|calendar.php|uploads|assets|bootstrap|img|template|plugins|robots.txt) 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /calendar/index.php
