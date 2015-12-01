@@ -9,7 +9,7 @@ function escapeString($string) {
   return preg_replace('/([\,;])/','\\\$1', $string);
 }
 
-function get_calendar($startDate, $hour, $titles, $descriptions) {
+function download($startDate, $days, $hour, $titles, $descriptions) {
 	header('Content-type: text/calendar; charset=utf-8');
 	header('Content-Disposition: attachment; filename=gifts.ics');
 
@@ -23,9 +23,8 @@ PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 	<?php
 
-	$days = count($titles);
-	$ttime = $hour + 6;
-	$sd = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone('PDT'));
+	//$ttime = $hour + 6;
+	$sd = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone('UTC'));
 
 
 	for ($i = 0; $i < $days; $i++) {
@@ -33,10 +32,10 @@ CALSCALE:GREGORIAN
 		
 		$day = $sd->format("d");
 
-		$sd->setTimezone(new DateTimeZone('UTC'));
+		$sd->setTimezone(new DateTimeZone('AMERICA/MONTERREY'));
 		 
 		// - Set to UTC ICAL FORMAT -
-		$stime = $sd->format('Ymd').'T'.$ttime.'0000Z';
+		$stime = $sd->format('Ymd').'T'.$hour.'00Z';
 
 
 // 3. Echo out the ics file's contents
@@ -68,8 +67,5 @@ END:VCALENDAR
 <?php 
 }
 
-$description = ["day 1", "day 2", "day 3", "day 4"];
-$title = ["title day 1", "title day 2", "title day 3", "title day 4"];
 
-get_calendar('20151201',15,$title,$description);
 ?>

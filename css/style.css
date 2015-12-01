@@ -56,28 +56,56 @@ body{
 .day.day_12 .btn{top: 82%;}
 /***** HOME ****** */
 
-#home {
+.home_bg {
 	background-color: #2d2d2d;
 	
 }
 
-#home .wrapper{
+.home {
+	max-width: 640px;
 	margin: 0 auto;
-	background-image: url('../img/background.png');
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center center;
-	width: 640px;
-	height: 1028px;
+	position: relative;
 }
 
-#home label.custom-select {
+.home .display{
+	position: absolute;
+	display: block;
+	margin: 0px auto;
+	width: 100%;
+}
+
+.home .hours {
+	width: 300px;
+	margin: 0 auto;
+	padding-top: 92%;
+}
+
+.home .add_button {
+	width: 478px;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 60px;
+}
+
+.home .no_thanks {
+	position: relative;
+	padding-top: 20px;
+	width: 640px;
+	margin: 0 auto;
+	text-align: center
+}
+
+.home .no_thanks a {
+	font-family: 'omnes_att_iiitalic', "Helvetica", "Arial", sans-serif;
+	color: #f56e04;
+}
+
+.home label.custom-select {
     position: relative;
     display: inline-block;
-
 }
 
-#home .custom-select select {
+.home .custom-select select {
     display: inline-block;
     width: 300px;
     padding: 4px 3px 3px 5px;
@@ -94,7 +122,7 @@ body{
 }
 
 /* Select arrow styling */
-#home .custom-select:after {
+.home .custom-select:after {
     content: url('../img/dropdown.png');
     width: 54px;
     height: 54px;
@@ -106,6 +134,6 @@ body{
     pointer-events: none;
 }
 
-#home .no-pointer-events .custom-select:after {
+.home .no-pointer-events .custom-select:after {
     content: none;
 }
