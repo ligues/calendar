@@ -123,9 +123,13 @@ function get_day($day) {
 
 
 function get_calendar($hour) {
+
 	require_once("calendar.php");
 
-	$title = [
+    
+
+    
+	$title = array(
 		"Un lindo detalle para tus fiestas.",
 		"Una deliciosa receta para tus leftovers.",
 		"Dale un toque mágico a tu decoración.",
@@ -137,11 +141,11 @@ function get_calendar($hour) {
 		"Te mereces unas fiestas sin estrés.",
 		"¡¿Alguien dijo HOLIDAY CHURROS?!",
 		"¡Súbele el volumen a tus fiestas!",
-		"Crea candelabros por arte de magia.",
+		"Crea candelabros por arte de magia.");
 
-	];
+	
 
-	$description = [
+	$description = array(
 		"Abre la magia haciendo clic en el enlace. Pista: A todos nos encantan las cosas gratis.",
 		"Abre la magia haciendo clic en el enlace. Pista: 3 maneras de disfrutar el pavito que sobró.",
 		"Abre la magia haciendo clic en el enlace. Pista: Algo divertido para hacer con los niños.",
@@ -153,8 +157,7 @@ function get_calendar($hour) {
 		"Abre la magia haciendo clic en el enlace. Pista: Menos OOPS. ¡Más WEPA!",
 		"Abre la magia haciendo clic en el enlace. Pista: Un postre clásico con un dulce twist.",
 		"Abre la magia haciendo clic en el enlace. Pista: Sonido tan real que creerás que te están dando posadas.",
-		"Abre la magia haciendo clic en el enlace. Pista: Ilumina tus fiestas con este truco sencillo."
-	];
+		"Abre la magia haciendo clic en el enlace. Pista: Ilumina tus fiestas con este truco sencillo.");
 
 	$startDate = '20151212';
 
@@ -176,7 +179,3 @@ function get_calendar($hour) {
 	download($startDate,$totaldays,$hour,$title,$description);
 }
 ?>
-
-
-
-
