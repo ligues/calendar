@@ -49,9 +49,15 @@ function get_day($day) {
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
-    <body>
+    <body class="day_bg">
 
-        <p>Day <?php echo $day; ?></p>
+        
+
+        <?php 
+            include("days/day_".$day.".php"); 
+        ?>
+
+        
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
