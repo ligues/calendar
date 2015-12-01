@@ -47,7 +47,7 @@ UID:<?= uniqid() ?>
 
 DESCRIPTION:<?= escapeString($descriptions[$i]) ?>
 
-URL;VALUE=URI:<?= escapeString($GLOBALS["url"].$day) ?>
+URL;VALUE=URI:<?= escapeString($GLOBALS["url"].($i+1)) ?>
 
 SUMMARY:<?= escapeString($titles[$i]) ?>
 
