@@ -50,7 +50,9 @@ function get_page() {
 		}
 
 		?>	
+
 		<?php include("intro.php"); ?>
+		
 		<div class="days">
 			<?php include("days/day_".$day.".php"); ?>
 		</div>
@@ -203,7 +205,7 @@ function get_calendar($hour) {
 	$today->add(new DateInterval('P1D'));
 
 
-	$diffdays = 0;
+	$diffdays = 1;
 	
 	if ($today > $start) {
 		$days = $start->diff($today);

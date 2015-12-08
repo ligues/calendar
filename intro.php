@@ -1,4 +1,8 @@
+
 <div class="home container">
+	<a href="javascript:void(0);" id="btnDownloadCalendar" download>
+		<img src="img/download_button.png" class="downloadButton">
+	</a>
 	<div id="download">
 		<img src="img/background.png" class="display">
 
@@ -40,7 +44,7 @@
 		</div>
 
 		<div class="add_button">
-			<a href="<?php echo $GLOBALS["url"]; ?>get/0900" id="btnAddCalendar">
+			<a href="javascript:void(0);" id="btnAddCalendar" download>
 				<img src="img/btn_add_calendar.png">
 			</a>
 		</div>
@@ -59,6 +63,7 @@
 			}
 
 			$('.days').css("visibility","visible");
+			$('.downloadButton').css("visibility","visible");
 			
 		});
 

@@ -1,5 +1,4 @@
 $(function() { 
-    $.removeCookie('calendar');
 
 
 	$('#btnAddCalendar').click(function(e){
@@ -12,11 +11,17 @@ $(function() {
     	$.cookie('calendar','download');
 
 		location.href=url+"get/"+hour+"?tz="+visitortimezone;
+        //window.open(url+"get/"+hour+"?tz="+visitortimezone, "_blank");
 
         handleOverlayClosed(); 
         $('#download').fadeOut("slow");
         s_top();
 	});
+
+    $('#btnDownloadCalendar').click(function(e){
+        e.preventDefault();
+        $('#download').fadeIn("slow");
+    });
 
 	
 
