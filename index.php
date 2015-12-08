@@ -5,6 +5,7 @@ session_start();
 header('Content-Type: text/html; charset=utf-8');
 
 $url = "http://localhost/calendar/";
+
 $startDate = '20151212';
 $endDate = '20151223';
 $totalDays = '12';
