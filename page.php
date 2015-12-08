@@ -122,34 +122,34 @@ function get_calendar($hour) {
 
     
 	$title = array(
-		"Un lindo detalle para tus fiestas.",
-		"Una deliciosa receta para tus leftovers.",
-		"Dale un toque mágico a tu decoración.",
-		"Tecnología que te pone a bailar.",
-		"¡Un intercambio que todos recordarán!",
-		"Esparce la magia con este lindo detalle.",
-		"Sin música, ¡no hay fiesta!",
-		"¡Una dulce receta para los tuyos!",
-		"Te mereces unas fiestas sin estrés.",
-		"¡¿Alguien dijo HOLIDAY CHURROS?!",
-		"¡Súbele el volumen a tus fiestas!",
-		"Crea candelabros por arte de magia.");
+		/*  1 */ "Un lindo detalle para tus fiestas.", /* 1 */
+		/*  2 */ "Una deliciosa receta para tus leftovers.",
+		/*  3 */ "Dale un toque mágico a tu decoración.",
+		/*  4 */ "Tecnología que te pone a bailar.",
+		/*  5 */ "¡Un intercambio que todos recordarán!",
+		/*  6 */ "Esparce la magia con este lindo detalle.",
+		/*  7 */ "Sin música, ¡no hay fiesta!",
+		/*  8 */ "¡Una dulce receta para los tuyos!",
+		/*  9 */ "Te mereces unas fiestas sin estrés.",
+		/* 10 */ "¡¿Alguien dijo HOLIDAY CHURROS?!",
+		/* 11 */ "¡Súbele el volumen a tus fiestas!",
+		/* 12 */ "Crea candelabros por arte de magia.");
 
 	
 
 	$description = array(
-		"Abre la magia haciendo clic en el enlace. Pista: A todos nos encantan las cosas gratis.",
-		"Abre la magia haciendo clic en el enlace. Pista: 3 maneras de disfrutar el pavito que sobró.",
-		"Abre la magia haciendo clic en el enlace. Pista: Algo divertido para hacer con los niños.",
-		"Abre la magia haciendo clic en el enlace. Pista: Calcula cuántos pasos diste en la pista de baile.",
-		"Abre la magia haciendo clic en el enlace. Pista: Una manera divertida de hacer el tradicional intercambio de regalos.",
-		"Abre la magia haciendo clic en el enlace. Pista: La época se hace alegre con estas decoraciones.",
-		"Abre la magia haciendo clic en el enlace. Pista: Un accesorio de música que sigue tu ritmo.",
-		"Abre la magia haciendo clic en el enlace. Pista: Disfrútalo durante un día lluvioso bajo las cobijas.",
-		"Abre la magia haciendo clic en el enlace. Pista: Menos OOPS. ¡Más WEPA!",
-		"Abre la magia haciendo clic en el enlace. Pista: Un postre clásico con un dulce twist.",
-		"Abre la magia haciendo clic en el enlace. Pista: Sonido tan real que creerás que te están dando posadas.",
-		"Abre la magia haciendo clic en el enlace. Pista: Ilumina tus fiestas con este truco sencillo.");
+		/*  1 */ "Abre la magia haciendo clic en el enlace. Pista: A todos nos encantan las cosas gratis.",
+		/*  2 */ "Abre la magia haciendo clic en el enlace. Pista: 3 maneras de disfrutar el pavito que sobró.",
+		/*  3 */ "Abre la magia haciendo clic en el enlace. Pista: Algo divertido para hacer con los niños.",
+		/*  4 */ "Abre la magia haciendo clic en el enlace. Pista: Calcula cuántos pasos diste en la pista de baile.",
+		/*  5 */ "Abre la magia haciendo clic en el enlace. Pista: Una manera divertida de hacer el tradicional intercambio de regalos.",
+		/*  6 */ "Abre la magia haciendo clic en el enlace. Pista: La época se hace alegre con estas decoraciones.",
+		/*  7 */ "Abre la magia haciendo clic en el enlace. Pista: Un accesorio de música que sigue tu ritmo.",
+		/*  8 */ "Abre la magia haciendo clic en el enlace. Pista: Disfrútalo durante un día lluvioso bajo las cobijas.",
+		/*  9 */ "Abre la magia haciendo clic en el enlace. Pista: Menos OOPS. ¡Más WEPA!",
+		/* 10 */ "Abre la magia haciendo clic en el enlace. Pista: Un postre clásico con un dulce twist.",
+		/* 11 */ "Abre la magia haciendo clic en el enlace. Pista: Sonido tan real que creerás que te están dando posadas.",
+		/* 12 */ "Abre la magia haciendo clic en el enlace. Pista: Ilumina tus fiestas con este truco sencillo.");
 
 	$startDate = $GLOBALS["startDate"];
 
@@ -163,15 +163,15 @@ function get_calendar($hour) {
 	if ($today > $start) {
 		$days = $start->diff($today);
 		$diffdays = $days->days;
+		$start = $today;
+		$start->sub(new DateInterval('P1D'));
 	}
-
-	$totaldays = 12 - $diffdays;
 
 	$time = $_GET['tz'];
 	$tz = $time * (-100);
 
 	$hour = $hour + $tz;
 
-	download($startDate,$totaldays,$hour,$title,$description);
+	download($start,$diffdays,$hour,$title,$description);
 }
 ?>

@@ -9,7 +9,7 @@ function escapeString($string) {
   return preg_replace('/([\,;])/','\\\$1', $string);
 }
 
-function download($startDate, $days, $hour, $titles, $descriptions) {
+function download($startDate, $startDay, $hour, $titles, $descriptions) {
 	header('Content-type: text/calendar; charset=utf-8');
 	header('Content-Disposition: attachment; filename=gifts.ics');
 
@@ -24,12 +24,13 @@ CALSCALE:GREGORIAN
 	<?php
 
 	//$ttime = $hour + 6;
-	$sd = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone('UTC'));
+	$sd = $startDate;
 
 	$startHour = sprintf('%04d', $hour);
 	$endHour = sprintf('%04d', $hour + 100);
+	$totalDays = $GLOBALS["totalDays"];
 
-	for ($i = 0; $i < $days; $i++) {
+	for ($i = $startDay; $i <= $totalDays; $i++) {
 		//$sd = new DateTime($startDate, new DateTimeZone('PDT'));
 		
 		$day = $sd->format("d");
@@ -49,13 +50,13 @@ BEGIN:VEVENT
 
 UID:<?= uniqid() ?>
 
-DESCRIPTION:<?= escapeString($descriptions[$i]) ?>
+DESCRIPTION:<?= escapeString($descriptions[$i-1]) ?>
 
-LOCATION:<?= escapeString($GLOBALS["url"].($i+1)) ?>
+LOCATION:<?= escapeString($GLOBALS["url"].($i)) ?>
 
-URL;VALUE=URI:<?= escapeString($GLOBALS["url"].($i+1)) ?>
+URL;VALUE=URI:<?= escapeString($GLOBALS["url"].($i)) ?>
 
-SUMMARY:<?= escapeString($titles[$i]) ?>
+SUMMARY:<?= escapeString($titles[$i-1]) ?>
 
 DTSTART:<?= $stime; ?>
 
