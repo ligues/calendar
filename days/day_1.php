@@ -1,4 +1,4 @@
-<div class="scroll">
+<div class="scroll wrapper">
 	
 	<div class="day container day_01">
 		<a href="#" class="btn btn_aprende">

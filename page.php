@@ -23,85 +23,40 @@ function get_page() {
 	    <script src="animation/canvas.assets.js"></script>
 	    <script src="animation/main.js"></script>
 	</head>
-	<body class="home_bg" onload="init();">
-		<div class="home container">
-			<div id="download">
-				<img src="img/background3.png" class="display">
+	<body class="day_bg" onload="init();">
+		<?php include("intro.php"); ?>
 
-				<div class="hours">
-					<label class="custom-select">
-						<select id="cboHours">
-							<option value="900">9:00 AM</option>
-							<option value="930">9:30 AM</option>
-							<option value="1000">10:00 AM</option>
-							<option value="1030">10:30 AM</option>
-							<option value="1100">11:00 AM</option>
-							<option value="1130">11:30 AM</option>
-							<option value="1200">12:00 PM</option>
-							<option value="1230">12:30 PM</option>
-							<option value="1300">1:00 PM</option>
-							<option value="1330">1:30 PM</option>
-							<option value="1400">2:00 PM</option>
-							<option value="1430">2:30 PM</option>
-							<option value="1500">3:00 PM</option>
-							<option value="1530">3:30 PM</option>
-							<option value="1600">4:00 PM</option>
-							<option value="1630">4:30 PM</option>
-							<option value="1700">5:00 PM</option>
-							<option value="1730">5:30 PM</option>
-							<option value="1800">6:00 PM</option>
-							<option value="1830">6:30 PM</option>
-							<option value="1900">7:00 PM</option>
-							<option value="1930">7:30 PM</option>
-							<option value="2000">8:00 PM</option>
-							<option value="2030">8:30 PM</option>
-							<option value="2100">9:00 PM</option>
-							<option value="2130">9:30 PM</option>
-							<option value="2200">10:00 PM</option>
-							<option value="2230">10:30 PM</option>
-							<option value="2300">11:00 PM</option>
-							<option value="2330">11:30 PM</option>
-						</select>
-					</label>
-				</div>
+		<?php 
+		$startDate = $GLOBALS["startDate"];
+		$endDate = $GLOBALS["endDate"];
 
-				<div class="add_button">
-					<a href="<?php echo $GLOBALS["url"]; ?>get/0900" id="btnAddCalendar">
-						<img src="img/btn_add_calendar.png">
-					</a>
-				</div>
+		$day = date("j");
+		$month = date("n");
+		$startDay = date("j", strtotime($startDate));
+		$endDay = date("j", strtotime($endDate));
 
-				<div class="no_thanks">
-					<a href="#" onclick="handleOverlayClosed(); document.getElementById('download').style.display='none';">No gracias, lo descargaré más tarde</a>
-				</div>
-			</div>
-			<script>
-				// Handles when first part of the intro has ended and the overlay needs to be shown
-				document.addEventListener('intro-ended', function(){
-					console.log('Mostrando el Overlay');
-					if ($.cookie('calendar')) {
-						handleOverlayClosed();
-					} else {
-						document.getElementById('download').style.display = "block";
-					}
-					
-				});
-				// Handles when the user finishes dragging and the animation has been completed, hides the canvas.
-				document.addEventListener('drag-ended', function(){
-					console.log('Finalizado, quitando el canvas');
-					document.getElementById('canvas-intro').style.display = "none";
-				});
-			</script>
-			
-			<div id="canvas-intro">
-			    <canvas id="canvas" width="640" height="1028"></canvas>
-			</div>
-		</div>
-		
+		if ($month == 12) {
+			if ($day <= $startDay) {
+				$day = 1;
+			} else {
+				if ($day >= $endDay) {
+					$day = $GLOBALS["totalDays"];
+				} else {
+					$day = $day - ($GLOBALS["totalDays"] - 1);
+				}
+			}
+		} else {
+			$day = $endDay;
+		}
+
+		include("days/day_".$day.".php"); 
+
+		?>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
+		<script src="js/vendor/jquery.jscroll.min.js"></script>
 		<script src="js/vendor/jquery.cookie.js"></script>
 		<script src="js/main.js"></script>
 	</body>
@@ -121,7 +76,8 @@ function get_day($day) {
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title></title>
 		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="viewport" content="width=640">
 
 		<link rel="stylesheet" href="css/normalize.min.css">
 		<link rel="stylesheet" href="css/main.css">
@@ -129,18 +85,26 @@ function get_day($day) {
 		<link rel="stylesheet" href="css/style.css">
 
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
+	    <script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+	    <script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
+	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+	    <script src="animation/canvas.assets.js"></script>
+	    <script src="animation/main.js"></script>
 	</head>
-	<body class="day_bg">
-
-		
+	<body class="day_bg" onload="init();">
+		<?php include("intro.php"); ?>
 
 		<?php 
 			include("days/day_".$day.".php"); 
 		?>
 
+		
+
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 		<script src="js/vendor/jquery.jscroll.min.js"></script>
+		<script src="js/vendor/jquery.cookie.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>
@@ -152,8 +116,6 @@ function get_day($day) {
 function get_calendar($hour) {
 
 	require_once("calendar.php");
-
-    
 
     
 	$title = array(
@@ -186,7 +148,7 @@ function get_calendar($hour) {
 		"Abre la magia haciendo clic en el enlace. Pista: Sonido tan real que creerás que te están dando posadas.",
 		"Abre la magia haciendo clic en el enlace. Pista: Ilumina tus fiestas con este truco sencillo.");
 
-	$startDate = '20151212';
+	$startDate = $GLOBALS["startDate"];
 
 	$start = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone("UTC"));
 	$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 

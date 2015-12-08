@@ -9,6 +9,11 @@ body{
 	min-height: 100%;
 }
 
+.wrapper {
+	display: none;
+	z-index: 10;
+}
+
 .day_bg{
 	background-image: url(../img/bg.jpg);
 	background-size: cover;
