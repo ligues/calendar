@@ -55,7 +55,7 @@
 			if ($.cookie('calendar')) {
 				handleOverlayClosed();
 			} else {
-				document.getElementById('download').style.display = "block";
+				$('#download').fadeIn("slow");
 			}
 
 			$('.days').css("visibility","visible");

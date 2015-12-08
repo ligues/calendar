@@ -1,4 +1,5 @@
 $(function() { 
+    $.removeCookie('calendar');
 
 	$('.day .btn').click(function(e){
 		e.preventDefault();
@@ -15,6 +16,10 @@ $(function() {
     	$.cookie('calendar','download');
 
 		location.href=url+"get/"+hour+"?tz="+visitortimezone;
+
+        handleOverlayClosed(); 
+        $('#download').fadeOut("slow");
+        s_top();
 	});
 
 	
