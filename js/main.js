@@ -23,6 +23,11 @@ $(function() {
         s_top();
 	});
 
+    $('#btnDownloadCalendar').click(function(e){
+        e.preventDefault();
+        $('#download').fadeIn("slow");
+    });
+
 	
 
 	$('.scroll').jscroll({

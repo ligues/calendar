@@ -1,6 +1,8 @@
 
 <div class="home container">
-	<img src="img/download_button.png" class="downloadButton">
+	<a href="javascript:void(0);" id="btnDownloadCalendar" download>
+		<img src="img/download_button.png" class="downloadButton">
+	</a>
 	<div id="download">
 		<img src="img/background.png" class="display">
 
