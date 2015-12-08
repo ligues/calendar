@@ -98,7 +98,25 @@ function get_day($day) {
 
 		<div class="days">
 		<?php 
-			include("days/day_".$day.".php"); 
+
+			/* AJAX check  */
+			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+				
+				$quit_scroll = false;
+				include("days/day_".$day.".php"); 	
+			}
+			else{
+
+				for ($i=1; $i < $day; $i++) { 
+					global $quit_scroll;
+					$quit_scroll = true;
+					include("days/day_".$i.".php");	
+				}
+
+				$quit_scroll = false;
+				include("days/day_".$day.".php"); 	
+			}
+			
 		?>
 		</div>
 
@@ -109,6 +127,9 @@ function get_day($day) {
 		<script src="js/vendor/jquery.jscroll.min.js"></script>
 		<script src="js/vendor/jquery.cookie.js"></script>
 		<script src="js/main.js"></script>
+		<script type="text/javascript">
+			
+		</script>
 	</body>
 </html>
 	<?php

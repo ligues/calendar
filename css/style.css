@@ -152,7 +152,7 @@ body{
     width:640px;
     height:1028px;
     display: block;
-    position: absolute;
+    position: fixed;
     z-index: 100;
 }
 
@@ -161,5 +161,5 @@ body{
     height:1028px;
     z-index: 110;
     display: none;
-    position: absolute;
+    position: fixed;
 }

@@ -1,6 +1,17 @@
-<div class="wrapper">
+<?php if(isset($quit_scroll)&&$quit_scroll==true){
 
-<div class="day container day_05">
+	$scroll = "hide_scroll";
+
+}
+else{
+	$scroll = "scroll";
+}
+
+?>
+
+<div class="wrapper <?php echo $scroll; ?>" >
+
+<div class="day container day_05"  id="day_5">
 	<a href="#" class="btn btn_comparte">
 		<img src="img/comparte.png">	
 	</a>

@@ -46,7 +46,7 @@
 		</div>
 
 		<div class="no_thanks">
-			<a href="#" onclick="handleOverlayClosed(); document.getElementById('download').style.display='none';">No gracias, lo descargaré más tarde</a>
+			<a href="javascript:void(0)" onclick="handleOverlayClosed(); document.getElementById('download').style.display='none'; s_top()">No gracias, lo descargaré más tarde</a>
 		</div>
 	</div>
 	<script>
@@ -61,6 +61,12 @@
 			$('.days').css("visibility","visible");
 			
 		});
+
+		function s_top(){
+			$('html, body').animate({
+		        scrollTop: $("#day_<?php echo $day; ?>").offset().top
+		    }, 0);
+		}
 		// Handles when the user finishes dragging and the animation has been completed, hides the canvas.
 		document.addEventListener('drag-ended', function(){
 			document.getElementById('canvas-intro').style.display = "none";
