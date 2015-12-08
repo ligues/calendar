@@ -79,7 +79,12 @@ function get_page() {
 				// Handles when first part of the intro has ended and the overlay needs to be shown
 				document.addEventListener('intro-ended', function(){
 					console.log('Mostrando el Overlay');
-					document.getElementById('download').style.display = "block";
+					if ($.cookie('calendar')) {
+						handleOverlayClosed();
+					} else {
+						document.getElementById('download').style.display = "block";
+					}
+					
 				});
 				// Handles when the user finishes dragging and the animation has been completed, hides the canvas.
 				document.addEventListener('drag-ended', function(){
@@ -97,6 +102,7 @@ function get_page() {
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
+		<script src="js/vendor/jquery.cookie.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>

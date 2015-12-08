@@ -12,6 +12,8 @@ $(function() {
         var visitortime = new Date();
     	var visitortimezone = -visitortime.getTimezoneOffset()/60;
 
+    	$.cookie('calendar','download');
+
 		location.href=url+"get/"+hour+"?tz="+visitortimezone;
 	});
 
