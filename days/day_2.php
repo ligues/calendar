@@ -14,7 +14,7 @@ else{
 		<a href="#" class="btn btn_comparte">
 			<img src="img/comparte.png">	
 		</a>
-		<a href="#" class="btn btn_video">
+		<a href="javascript:play_video_flan()" class="btn btn_video">
 			<img src="img/play.png">	
 		</a>
 		<img src="img/day_02.png" class="display">	
@@ -24,5 +24,19 @@ else{
 	<?php if($scroll_day>$day){?>
 	<span class="next"><a href="3"></a></span>
 	<?php }?>
-</div>
 
+	<div class="day_video" style="display:none">
+		<video width="404" height="718" id="video_flan">
+		  <source src="videos/flan.mp4" type="video/mp4">
+		  <source src="videos/flan.ogv" type="video/ogg">
+		Your browser does not support the video tag.
+		</video>
+	</div>
+
+</div>
+<script type="text/javascript">
+	function play_video_flan(){
+		var myVideo = document.getElementById("video_flan"); 
+		myVideo.play(); 	
+	}
+</script>

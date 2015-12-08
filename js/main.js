@@ -1,10 +1,6 @@
 $(function() { 
     $.removeCookie('calendar');
 
-	$('.day .btn').click(function(e){
-		e.preventDefault();
-		alert('CTA Click !!!');
-	});
 
 	$('#btnAddCalendar').click(function(e){
 		e.preventDefault();
