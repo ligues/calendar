@@ -61,6 +61,14 @@ body{
 .day.day_12 .btn{top: 82%;}
 /***** HOME ****** */
 
+.downloadButton {
+	visibility: hidden;
+	margin: 0px auto;
+	position: fixed;
+	z-index: 11;
+	bottom: 0px;
+}
+
 .home_bg {
 	background-color: #D4D4D4;
 	

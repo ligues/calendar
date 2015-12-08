@@ -1,5 +1,6 @@
 $(function() { 
 
+    $.removeCookie('calendar');
 	$('.day .btn').click(function(e){
 		e.preventDefault();
 		alert('CTA Click !!!');
@@ -15,6 +16,7 @@ $(function() {
     	$.cookie('calendar','download');
 
 		location.href=url+"get/"+hour+"?tz="+visitortimezone;
+        //window.open(url+"get/"+hour+"?tz="+visitortimezone, "_blank");
 
         handleOverlayClosed(); 
         $('#download').fadeOut("slow");
