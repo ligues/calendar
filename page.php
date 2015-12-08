@@ -12,7 +12,6 @@ function get_page() {
 		<title></title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="animation/canvas.style.css">
 		<link rel="stylesheet" href="css/normalize.min.css">
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/fonts/style.css">
@@ -26,8 +25,8 @@ function get_page() {
 	    <script src="animation/main.js"></script>
 	</head>
 	<body class="home_bg" onload="init();">
-		<div id="overlay">
-			<div class="home container">
+		<div class="home container">
+			<div id="download">
 				<img src="img/background3.png" class="display">
 
 				<div class="hours">
@@ -74,25 +73,25 @@ function get_page() {
 				</div>
 
 				<div class="no_thanks">
-					<a href="#" onclick="handleOverlayClosed(); document.getElementById('overlay').style.display='none';">No gracias, lo descargaré más tarde</a>
+					<a href="#" onclick="handleOverlayClosed(); document.getElementById('download').style.display='none';">No gracias, lo descargaré más tarde</a>
 				</div>
 			</div>
 			<script>
-		        // Handles when first part of the intro has ended and the overlay needs to be shown
-		        document.addEventListener('intro-ended', function(){
-		            console.log('Mostrando el Overlay');
-		            document.getElementById('overlay').style.display = "block";
-		        });
-		        // Handles when the user finishes dragging and the animation has been completed, hides the canvas.
-		        document.addEventListener('drag-ended', function(){
-		            console.log('Finalizado, quitando el canvas');
-		            document.getElementById('canvas-intro').style.display = "none";
-		        });
-		    </script>
-		</div>
-
-		<div id="canvas-intro">
-		    <canvas id="canvas" width="640" height="1028"></canvas>
+				// Handles when first part of the intro has ended and the overlay needs to be shown
+				document.addEventListener('intro-ended', function(){
+					console.log('Mostrando el Overlay');
+					document.getElementById('download').style.display = "block";
+				});
+				// Handles when the user finishes dragging and the animation has been completed, hides the canvas.
+				document.addEventListener('drag-ended', function(){
+					console.log('Finalizado, quitando el canvas');
+					document.getElementById('canvas-intro').style.display = "none";
+				});
+			</script>
+			
+			<div id="canvas-intro">
+			    <canvas id="canvas" width="640" height="1028"></canvas>
+			</div>
 		</div>
 		
 
