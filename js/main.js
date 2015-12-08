@@ -1,5 +1,4 @@
 $(function() { 
-    $.removeCookie('calendar');
 
 	$('.day .btn').click(function(e){
 		e.preventDefault();
