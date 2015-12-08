@@ -26,6 +26,8 @@ CALSCALE:GREGORIAN
 	//$ttime = $hour + 6;
 	$sd = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone('UTC'));
 
+	$startHour = sprintf('%04d', $hour);
+	$endHour = sprintf('%04d', $hour + 100);
 
 	for ($i = 0; $i < $days; $i++) {
 		//$sd = new DateTime($startDate, new DateTimeZone('PDT'));
@@ -35,7 +37,9 @@ CALSCALE:GREGORIAN
 		$sd->setTimezone(new DateTimeZone('UTC'));
 		 
 		// - Set to UTC ICAL FORMAT -
-		$stime = $sd->format('Ymd').'T'.$hour.'00Z';
+		$stime = $sd->format('Ymd').'T'.$startHour.'00Z';
+		
+		$etime = $sd->format('Ymd').'T'.$endHour.'00Z';
 
 
 // 3. Echo out the ics file's contents
@@ -47,11 +51,15 @@ UID:<?= uniqid() ?>
 
 DESCRIPTION:<?= escapeString($descriptions[$i]) ?>
 
+LOCATION:<?= escapeString($GLOBALS["url"].($i+1)) ?>
+
 URL;VALUE=URI:<?= escapeString($GLOBALS["url"].($i+1)) ?>
 
 SUMMARY:<?= escapeString($titles[$i]) ?>
 
 DTSTART:<?= $stime; ?>
+
+DTEND:<?= $etime; ?>
 
 END:VEVENT
 
