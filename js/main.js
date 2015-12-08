@@ -15,4 +15,36 @@ $(function() {
 		location.href=url+"get/"+hour+"?tz="+visitortimezone;
 	});
 
+	
+
+	$('.scroll').jscroll({
+    //loadingHtml: '<img src="loading.gif" alt="Loading" /> Loading...',
+    padding: 20,
+    debug:true,
+    nextSelector: '.next a:last',
+    //autoTrigger: false,
+    contentSelector: '.wrapper',
+    callback: function(){
+    	//debugger;
+    	console.log($(this).html());
+    }
+	}); 
+
+	/*
+	var waypoints = $('.infinite-scroll').waypoint({
+	  handler: function() {
+	    console.log(12)
+	  	$.ajax('2', function (response) {
+	  	console.log(response)
+		var source = $('' + response + '');
+		$('.infinite-scroll').append(source.find('.wrapper').html());
+		});
+
+	  },
+	  context: '.day_01',
+	  offset: 'bottom-in-view'
+	});
+
+	*/
+
 })
