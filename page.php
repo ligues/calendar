@@ -49,9 +49,10 @@ function get_page() {
 			$day = $endDay;
 		}
 
-		include("days/day_".$day.".php"); 
-
-		?>
+		?>	
+		<div class="days">
+			<?php include("days/day_".$day.".php"); ?>
+		</div>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
@@ -95,9 +96,11 @@ function get_day($day) {
 	<body class="day_bg" onload="init();">
 		<?php include("intro.php"); ?>
 
+		<div class="days">
 		<?php 
 			include("days/day_".$day.".php"); 
 		?>
+		</div>
 
 		
 

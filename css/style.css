@@ -9,8 +9,8 @@ body{
 	min-height: 100%;
 }
 
-.wrapper {
-	display: none;
+.days {
+	visibility: hidden;
 	z-index: 10;
 }
 

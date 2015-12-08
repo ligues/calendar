@@ -52,19 +52,17 @@
 	<script>
 		// Handles when first part of the intro has ended and the overlay needs to be shown
 		document.addEventListener('intro-ended', function(){
-			console.log('Mostrando el Overlay');
 			if ($.cookie('calendar')) {
 				handleOverlayClosed();
 			} else {
 				document.getElementById('download').style.display = "block";
 			}
 
-			$('.wrapper').show();
+			$('.days').css("visibility","visible");
 			
 		});
 		// Handles when the user finishes dragging and the animation has been completed, hides the canvas.
 		document.addEventListener('drag-ended', function(){
-			console.log('Finalizado, quitando el canvas');
 			document.getElementById('canvas-intro').style.display = "none";
 		});
 	</script>
