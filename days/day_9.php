@@ -18,5 +18,7 @@ else{
 	
 </div>
 
+<?php if($scroll_day>$day){?>
 <span class="next"><a href="10"></a></span>
+<?php }?>
 </div>

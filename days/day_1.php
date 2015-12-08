@@ -18,8 +18,9 @@ else{
 		<img src="img/day_01.png" class="display">
 	</div>	
 	
+	<?php if($scroll_day>$day){?>
 	<span class="next"><a href="2"></a></span>
-	
+	<?php }?>
 </div>
 
 

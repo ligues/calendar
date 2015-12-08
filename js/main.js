@@ -27,7 +27,7 @@ $(function() {
 	$('.scroll').jscroll({
     loadingHtml: '',
     padding: 20,
-    debug:true,
+    //debug:true,
     nextSelector: '.next a:last',
     //autoTrigger: false,
     contentSelector: '.wrapper',

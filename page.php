@@ -24,7 +24,7 @@ function get_page() {
 	    <script src="animation/main.js"></script>
 	</head>
 	<body class="day_bg" onload="init();">
-		<?php include("intro.php"); ?>
+		
 
 		<?php 
 		$startDate = $GLOBALS["startDate"];
@@ -46,10 +46,11 @@ function get_page() {
 				}
 			}
 		} else {
-			$day = $endDay;
+			$day = $GLOBALS["totalDays"];
 		}
 
 		?>	
+		<?php include("intro.php"); ?>
 		<div class="days">
 			<?php include("days/day_".$day.".php"); ?>
 		</div>
@@ -98,6 +99,29 @@ function get_day($day) {
 
 		<div class="days">
 		<?php 
+
+
+			$startDate = $GLOBALS["startDate"];
+
+			$start = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone("UTC"));
+			$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 
+			$today->add(new DateInterval('P1D'));
+
+			$diffdays = 0;
+			
+			if ($today > $start) {
+				$days = $start->diff($today);
+				$diffdays = $days->days;
+				$start = $today;
+				$start->sub(new DateInterval('P1D'));
+			}
+
+			global $scroll_day;
+
+			$scroll_day = $diffdays;
+
+			//echo "<script>alert('".$scroll_day."')</script>";
+
 
 			/* AJAX check  */
 			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
