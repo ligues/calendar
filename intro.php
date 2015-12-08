@@ -1,6 +1,6 @@
 <div class="home container">
 	<div id="download">
-		<img src="img/background3.png" class="display">
+		<img src="img/background.png" class="display">
 
 		<div class="hours">
 			<label class="custom-select">
