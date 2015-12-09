@@ -23,7 +23,9 @@ else{
 
 <?php if($scroll_day>$day){?>
 <span class="next"><a href="11"></a></span>
-<?php }?>
+<?php } else{?>
+	<span class="next"><a href="days/future.php"></a></span>
+	<?php }?>
 
 <div class="day_video" style="display:none">
 		<video width="404" height="718" id="video_churro">

@@ -21,6 +21,8 @@ else{
 
 <?php if($scroll_day>$day){?>
 <span class="next"><a href="5"></a></span>
-<?php }?>
+<?php } else{?>
+	<span class="next"><a href="days/future.php"></a></span>
+	<?php }?>
 
 </div>
