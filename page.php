@@ -1,6 +1,6 @@
 <?php
 
-
+global $meta; 
 $meta = array
   (
   array("2","¡Flan para todos!","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","FLAN.jpg"),
@@ -10,7 +10,6 @@ $meta = array
   array("10","Churros para compartir","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","CHURRO.jpg"),
   array("12","Candelabro hecho en casa","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","CANDLES.jpg"),
   );
-
 
 
 
@@ -71,6 +70,8 @@ function get_page() {
 			<?php include("days/day_".$day.".php"); ?>
 		</div>
 
+		<?php print_meta($day); ?>
+
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
@@ -101,6 +102,8 @@ function get_day($day) {
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/fonts/style.css">
 		<link rel="stylesheet" href="css/style.css">
+
+		<?php print_meta($day); ?>
 
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
@@ -236,4 +239,33 @@ function get_calendar($hour) {
 
 	download($start,$diffdays,$hour,$title,$description);
 }
+
+function print_meta($day){
+	global $meta;
+
+
+	$title = "Default Title";
+	$description = "Default Description";
+	$image = $meta[0][3];
+
+	for ($i=0; $i < count($meta) ; $i++) { 
+		
+		if($meta[$i][0]==$day){
+			$title = $meta[$i][1];
+			$description = $meta[$i][2];
+			$image = $meta[$i][3];
+		}
+
+	}
+
+	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+	echo "<meta property='og:title' content='".$title."' />\n";
+	echo "<meta property='og:type' content='website' />\n";
+	echo "<meta property='og:description' content='".$description."' />\n";
+	echo "<meta property='og:url' content='".$actual_link."' />\n";
+	echo "<meta property='og:image' content='".$GLOBALS['url']."img/meta/".$image."' />\n";
+
+}
+
 ?>
