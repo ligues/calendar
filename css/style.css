@@ -47,20 +47,20 @@ body{
 }
 
 .day.day_01 .btn{top: 69%;}
-.day.day_02 .btn{top: 85%;}
-.day.day_02 .btn.btn_video{top: 24.5%;}
-.day.day_03 .btn{top: 71%;}
+.day.day_02 .btn{top: 84.5%;}
+.day.day_02 .btn.btn_video{top: 28%;}
+.day.day_03 .btn{top: 71.5%;}
 .day.day_04 .btn{top: 70%;}
-.day.day_05 .btn{top: 75%;}
-.day.day_06 .btn{top: 90%;}
+.day.day_05 .btn{top: 74%;}
+.day.day_06 .btn{top: 88%;}
 .day.day_07 .btn{top: 72%;}
 .day.day_08 .btn{top: 82%;}
-.day.day_08 .btn.btn_video{top: 34.5%;}
+.day.day_08 .btn.btn_video{top: 36%;}
 .day.day_09 .btn{top: 72%;}
-.day.day_10 .btn{top: 86%;}
-.day.day_10 .btn.btn_video{top: 25%;}
+.day.day_10 .btn{top: 84%;}
+.day.day_10 .btn.btn_video{top: 31%;}
 .day.day_11 .btn{top: 74%;}
-.day.day_12 .btn{top: 82%;}
+.day.day_12 .btn{top: 85%;}
 /***** HOME ****** */
 
 .downloadButton {
