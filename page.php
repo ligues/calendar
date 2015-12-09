@@ -1,5 +1,19 @@
 <?php
 
+
+$meta = array
+  (
+  array("2","¡Flan para todos!","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","FLAN.jpg"),
+  array("5","Un intercambio único","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","GIFTS.jpg"),
+  array("6","Decora a tu manera","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","TREES.jpg"),
+  array("8","Rico chocolate caliente","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","COCO.jpg"),
+  array("10","Churros para compartir","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","CHURRO.jpg"),
+  array("12","Candelabro hecho en casa","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","CANDLES.jpg"),
+  );
+
+
+
+
 function get_page() {
 
 ?>
