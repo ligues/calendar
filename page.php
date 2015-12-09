@@ -37,6 +37,27 @@ function get_page() {
 	    <script src="animation/main.js"></script>
 	</head>
 	<body class="day_bg" onload="init();">
+
+
+		<div id="videoContent" style="display: none">
+			<video id="video_flan" class="video" preload="none" style="display: none" controls>
+				<source src="videos/flan.mp4" type="video/mp4">
+				<source src="videos/flan.ogv" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
+
+			<video id="video_chocolate" class="video" preload="none" style="display: none" controls>
+				<source src="videos/chocolate.mp4" type="video/mp4">
+				<source src="videos/chocolate.ogv" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
+
+			<video id="video_churro" class="video" preload="none" style="display: none" controls>
+				<source src="videos/churro.mp4" type="video/mp4">
+				<source src="videos/churro.ogv" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
+		</div>
 		
 
 		<?php 
