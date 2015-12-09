@@ -11,7 +11,7 @@ else{
 
 <div class="wrapper <?php echo $scroll; ?>" >
 <div class="day container day_06"  id="day_6">
-	<a href="#" class="btn btn_comparte">
+	<a href="javascript:void(0)" onclick="share(this);" data-url="<?php echo $GLOBALS['url']; ?>6" class="btn btn_comparte">
 		<img src="img/comparte.png">	
 	</a>
 	<img src="img/day_06.png" class="display">

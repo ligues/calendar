@@ -44,13 +44,13 @@
 		</div>
 
 		<div class="add_button">
-			<a href="javascript:void(0);" id="btnAddCalendar" download>
+			<a href="javascript:void(0);" id="btnAddCalendar" download target="_system">
 				<img src="img/btn_add_calendar.png">
 			</a>
 		</div>
 
 		<div class="no_thanks">
-			<a href="javascript:void(0)" onclick="handleOverlayClosed(); document.getElementById('download').style.display='none'; s_top()">No gracias, lo descargaré más tarde</a>
+			<a href="javascript:void(0)" onclick="handleOverlayClosed(); document.getElementById('download').style.display='none';">No gracias, lo descargaré más tarde</a>
 		</div>
 	</div>
 	<script>
@@ -64,14 +64,13 @@
 
 			$('.days').css("visibility","visible");
 			$('.downloadButton').css("visibility","visible");
-			
-		});
 
-		function s_top(){
 			$('html, body').animate({
 		        scrollTop: $("#day_<?php echo $day; ?>").offset().top
 		    }, 0);
-		}
+			
+		});		
+
 		// Handles when the user finishes dragging and the animation has been completed, hides the canvas.
 		document.addEventListener('drag-ended', function(){
 			document.getElementById('canvas-intro').style.display = "none";

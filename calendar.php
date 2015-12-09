@@ -10,6 +10,8 @@ function escapeString($string) {
 }
 
 function download($startDate, $startDay, $hour, $titles, $descriptions) {
+	ob_start();
+
 	header('Content-type: text/calendar; charset=utf-8');
 	header('Content-Disposition: attachment; filename=gifts.ics');
 
@@ -62,6 +64,8 @@ DTSTART:<?= $stime; ?>
 
 DTEND:<?= $etime; ?>
 
+STATUS:FREE
+
 END:VEVENT
 
 <?php 
@@ -74,7 +78,9 @@ END:VEVENT
 END:VCALENDAR
 
 <?php 
+	// - full output -
+	$tfeventsical = ob_get_contents();
+	ob_end_clean();
+	echo $tfeventsical;
+
 }
-
-
-?>

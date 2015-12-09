@@ -62,6 +62,23 @@ function get_page() {
 			$day = $GLOBALS["totalDays"];
 		}
 
+		$start = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone("UTC"));
+		$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 
+		$today->add(new DateInterval('P1D'));
+
+		$diffdays = 0;
+		
+		if ($today > $start) {
+			$days = $start->diff($today);
+			$diffdays = $days->days;
+			$start = $today;
+			$start->sub(new DateInterval('P1D'));
+		}
+
+		$scroll_day = $diffdays;
+
+		$scroll_day = 12;
+
 		?>	
 
 		<?php include("intro.php"); ?>
@@ -116,6 +133,26 @@ function get_day($day) {
 	<body class="day_bg" onload="init();">
 		<?php include("intro.php"); ?>
 
+		<div id="videoContent" style="display: none">
+			<video id="video_flan" class="video" preload="none" style="display: none" controls>
+				<source src="videos/flan.mp4" type="video/mp4">
+				<source src="videos/flan.ogv" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
+
+			<video id="video_chocolate" class="video" preload="none" style="display: none" controls>
+				<source src="videos/chocolate.mp4" type="video/mp4">
+				<source src="videos/chocolate.ogv" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
+
+			<video id="video_churro" class="video" preload="none" style="display: none" controls>
+				<source src="videos/churro.mp4" type="video/mp4">
+				<source src="videos/churro.ogv" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+
 		<div class="days">
 		<?php 
 
@@ -138,6 +175,8 @@ function get_day($day) {
 			global $scroll_day;
 
 			$scroll_day = $diffdays;
+
+			$scroll_day = 12;
 
 			//echo "<script>alert('".$scroll_day."')</script>";
 
