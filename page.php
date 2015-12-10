@@ -126,7 +126,7 @@ function get_page() {
 
 
 
-function get_day($day) {
+function get_day($day, $from) {
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -325,7 +325,7 @@ function print_meta($day){
 
 	}
 
-	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]/facebook";
 
 	echo "<meta property='og:title' content='".$title."' />\n";
 	echo "<meta property='og:type' content='website' />\n";
