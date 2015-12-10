@@ -66,7 +66,7 @@ DESCRIPTION:<?= escapeString($descriptions[$i-1]); ?>
 
 LAST-MODIFIED:<?= date('Ymd\THis\Z'); ?>
 
-LOCATION:<?= escapeString($GLOBALS["url"].($i)); ?>
+LOCATION:<?= escapeString($GLOBALS["url"].($i))."?f=calendar"; ?>
 
 SEQUENCE:0
 STATUS:CONFIRMED
