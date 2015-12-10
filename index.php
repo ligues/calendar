@@ -42,7 +42,8 @@ if (count($command) > 0) {
 		if ($command[0] == "get") {
 			get_calendar($command[1],$command[2]);
 		} else {
-			get_day($command[0], $command[1]); 
+
+			get_day($command[0]); 
 		}
 	} else {
 		get_page();	

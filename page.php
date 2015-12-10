@@ -126,7 +126,7 @@ function get_page() {
 
 
 
-function get_day($day, $from) {
+function get_day($day) {
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="">
