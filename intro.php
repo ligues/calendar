@@ -68,9 +68,30 @@
 			$('.days').css("visibility","visible");
 			$('.downloadButton').css("visibility","visible");
 
+			var top = 0;
+
+			switch("<?php echo $day; ?>") {
+			    case "4":
+			        top = 10
+			        break;
+			    case "7":
+			        top = 10
+			        break;
+			    case "9":
+			        top = 18
+			        break;
+			    case "9":
+			        top = 11
+			        break;
+			    default:
+			        top = 0;
+			}
+
+			//console.log($("#day_<?php echo $day; ?>").offset().top)
+
 			$('html, body').animate({
-		        scrollTop: $("#day_<?php echo $day; ?>").offset().top
-		    }, 0);
+		        scrollTop: $("#day_<?php echo $day; ?>").offset().top //- parseInt(top)
+		    }, 1000);
 			
 		});		
 
