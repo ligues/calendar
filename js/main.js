@@ -17,7 +17,7 @@ function gaTracker(id){
 function gaTrack(category, action,label,value) {
     console.log(category + ", " +  action + ", " +  label + ", " +  value);
     //ga('set', { page: path, title: title });
-    //ga('send', 'event',category,action,label,value);
+    ga('send', 'event',category,action,label,value);
 }
 
 // Initiate the tracker after app has loaded
