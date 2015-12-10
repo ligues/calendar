@@ -23,7 +23,7 @@ function get_page() {
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title></title>
 		<meta name="description" content="">
-		<meta name="viewport" content="width=640">
+		<meta name="viewport" content="width=640, user-scalable=no">
 		<link rel="stylesheet" href="css/normalize.min.css">
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/fonts/style.css">
@@ -36,8 +36,8 @@ function get_page() {
 	    <script src="animation/canvas.assets.js"></script>
 	    <script src="animation/main.js"></script>
 	</head>
-	<body class="day_bg" onload="init();">
-
+	<body onload="init();">
+		<div class="day_bg"></div>
 
 		<div id="videoContent" style="display: none">
 			<video id="video_flan" class="video" preload="none" style="display: none" controls>
@@ -134,7 +134,7 @@ function get_day($day) {
 		<title></title>
 		<meta name="description" content="">
 		
-		<meta name="viewport" content="width=640">
+		<meta name="viewport" content="width=640, user-scalable=no">
 
 		<link rel="stylesheet" href="css/normalize.min.css">
 		<link rel="stylesheet" href="css/main.css">
@@ -151,7 +151,8 @@ function get_day($day) {
 	    <script src="animation/canvas.assets.js"></script>
 	    <script src="animation/main.js"></script>
 	</head>
-	<body class="day_bg" onload="init();">
+	<body onload="init();">
+		<div class="day_bg"></div>
 		<?php include("intro.php"); ?>
 
 		<div id="videoContent" style="display: none">
@@ -241,7 +242,7 @@ function get_day($day) {
 
 
 
-function get_calendar($hour) {
+function get_calendar($hour, $time) {
 
 	require_once("calendar.php");
 
@@ -292,7 +293,6 @@ function get_calendar($hour) {
 		$start->sub(new DateInterval('P1D'));
 	}
 
-	$time = $_GET['tz'];
 	$tz = $time * (-100);
 
 	$hour = $hour + $tz;

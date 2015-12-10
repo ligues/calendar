@@ -1,4 +1,7 @@
 var option = "";
+var nua = navigator.userAgent;
+var is_android = ((nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 &&     nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
+var is_iOS = /iPad|iPhone|iPod/.test(navigator.platform);
 
 $(function() { 
 
@@ -12,17 +15,32 @@ $(function() {
 
     	$.cookie('calendar','download');
 
-		location.href=url+"get/"+hour+"?tz="+visitortimezone;
-        //window.open(url+"get/"+hour+"?tz="+visitortimezone, "_system");
+		//location.href=url+"get/"+hour+"?tz="+visitortimezone;
+        //location.href="googlechrome://12diasdemagia.com/"+"get/"+hour+"?tz="+visitortimezone;
+        //window.open("calshow://12diasdemagia.com/"+"get/"+hour+"?tz="+visitortimezone, "_system");
+        if (is_android) {
+            location.href="googlechrome://12diasdemagia.com/"+"get/"+hour+"/"+visitortimezone;
+        } else if (is_iOS) {
+            window.open("webcal://12diasdemagia.com/"+"get/"+hour+"/"+visitortimezone);    
+        } else {
+            location.href=url+"get/"+hour+"/"+visitortimezone;
+        }
+        
+
 
         handleOverlayClosed(); 
         $('#download').fadeOut("slow");
-        s_top();
 	});
 
     $('#btnDownloadCalendar').click(function(e){
         e.preventDefault();
-        $('#download').fadeIn("slow");
+        
+        $('#download').fadeIn("slow", function(){
+            $('#downloadOverlay').height($(window).height());
+        });
+        
+
+        //$('#download').fadeIn("slow");
     });	
 
 	$('.scroll').jscroll({

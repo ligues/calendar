@@ -1,12 +1,154 @@
 BEGIN:VCALENDAR
+
 VERSION:2.0
+
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
+
+CALSCALE:GREGORIAN
+	
 BEGIN:VEVENT
-UID:uid1@example.com
-DTSTAMP:20151212T150000Z
-ORGANIZER;CN=John Doe:MAILTO:john.doe@example.com
+
+UID:56675b3da2b14
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: A todos nos encantan las cosas gratis.
+LOCATION:http://localhost/calendar/1
+URL;VALUE=URI:http://localhost/calendar/1
+SUMMARY:Un lindo detalle para tus fiestas.
 DTSTART:20151212T150000Z
 DTEND:20151212T160000Z
-SUMMARY:Bastille Day Party
 END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2bb6
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: 3 maneras de disfrutar el pavito que sobró.
+LOCATION:http://localhost/calendar/2
+URL;VALUE=URI:http://localhost/calendar/2
+SUMMARY:Una deliciosa receta para tus leftovers.
+DTSTART:20151213T150000Z
+DTEND:20151213T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2c21
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Algo divertido para hacer con los niños.
+LOCATION:http://localhost/calendar/3
+URL;VALUE=URI:http://localhost/calendar/3
+SUMMARY:Dale un toque mágico a tu decoración.
+DTSTART:20151214T150000Z
+DTEND:20151214T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2c6e
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Calcula cuántos pasos diste en la pista de baile.
+LOCATION:http://localhost/calendar/4
+URL;VALUE=URI:http://localhost/calendar/4
+SUMMARY:Tecnología que te pone a bailar.
+DTSTART:20151215T150000Z
+DTEND:20151215T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2c9b
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Una manera divertida de hacer el tradicional intercambio de regalos.
+LOCATION:http://localhost/calendar/5
+URL;VALUE=URI:http://localhost/calendar/5
+SUMMARY:¡Un intercambio que todos recordarán!
+DTSTART:20151216T150000Z
+DTEND:20151216T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2cc8
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: La época se hace alegre con estas decoraciones.
+LOCATION:http://localhost/calendar/6
+URL;VALUE=URI:http://localhost/calendar/6
+SUMMARY:Esparce la magia con este lindo detalle.
+DTSTART:20151217T150000Z
+DTEND:20151217T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2cf4
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Un accesorio de música que sigue tu ritmo.
+LOCATION:http://localhost/calendar/7
+URL;VALUE=URI:http://localhost/calendar/7
+SUMMARY:Sin música\, ¡no hay fiesta!
+DTSTART:20151218T150000Z
+DTEND:20151218T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2d1f
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Disfrútalo durante un día lluvioso bajo las cobijas.
+LOCATION:http://localhost/calendar/8
+URL;VALUE=URI:http://localhost/calendar/8
+SUMMARY:¡Una dulce receta para los tuyos!
+DTSTART:20151219T150000Z
+DTEND:20151219T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2d4a
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Menos OOPS. ¡Más WEPA!
+LOCATION:http://localhost/calendar/9
+URL;VALUE=URI:http://localhost/calendar/9
+SUMMARY:Te mereces unas fiestas sin estrés.
+DTSTART:20151220T150000Z
+DTEND:20151220T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2d8a
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Un postre clásico con un dulce twist.
+LOCATION:http://localhost/calendar/10
+URL;VALUE=URI:http://localhost/calendar/10
+SUMMARY:¡¿Alguien dijo HOLIDAY CHURROS?!
+DTSTART:20151221T150000Z
+DTEND:20151221T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2dec
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Sonido tan real que creerás que te están dando posadas.
+LOCATION:http://localhost/calendar/11
+URL;VALUE=URI:http://localhost/calendar/11
+SUMMARY:¡Súbele el volumen a tus fiestas!
+DTSTART:20151222T150000Z
+DTEND:20151222T160000Z
+END:VEVENT
+
+
+BEGIN:VEVENT
+
+UID:56675b3da2e38
+DESCRIPTION:Abre la magia haciendo clic en el enlace. Pista: Ilumina tus fiestas con este truco sencillo.
+LOCATION:http://localhost/calendar/12
+URL;VALUE=URI:http://localhost/calendar/12
+SUMMARY:Crea candelabros por arte de magia.
+DTSTART:20151223T150000Z
+DTEND:20151223T160000Z
+END:VEVENT
+
+
 END:VCALENDAR
+

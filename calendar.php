@@ -10,20 +10,23 @@ function escapeString($string) {
 }
 
 function download($startDate, $startDay, $hour, $titles, $descriptions) {
-	ob_start();
-
 	header('Content-type: text/calendar; charset=utf-8');
 	header('Content-Disposition: attachment; filename=gifts.ics');
 
+	header('Content-Type: application/force-download');
+	header('Content-Description: File Transfer');
+	header('ForceType: application/octet-stream');
+
 	?>
 BEGIN:VCALENDAR
-
-VERSION:2.0
-
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
-
+VERSION:2.0
 CALSCALE:GREGORIAN
-	<?php
+METHOD:PUBLISH
+X-WR-CALNAME:12 Dias de Magia
+X-WR-TIMEZONE:America/Mexico_City
+X-WR-CALDESC:12 Dias de Magia\nhttp://12diasdemagia.com
+<?php
 
 	//$ttime = $hour + 6;
 	$sd = $startDate;
@@ -49,38 +52,37 @@ CALSCALE:GREGORIAN
 ?>
 
 BEGIN:VEVENT
-
-UID:<?= uniqid() ?>
-
-DESCRIPTION:<?= escapeString($descriptions[$i-1]) ?>
-
-LOCATION:<?= escapeString($GLOBALS["url"].($i)) ?>
-
-URL;VALUE=URI:<?= escapeString($GLOBALS["url"].($i)) ?>
-
-SUMMARY:<?= escapeString($titles[$i-1]) ?>
-
 DTSTART:<?= $stime; ?>
 
 DTEND:<?= $etime; ?>
 
-STATUS:FREE
+DTSTAMP:<?= date('Ymd\THis\Z'); ?>
+
+UID:<?= uniqid() ?>
+
+CREATED:<?= date('Ymd\THis\Z'); ?>
+
+DESCRIPTION:<?= escapeString($descriptions[$i-1]) ?>
+
+LAST-MODIFIED:<?= date('Ymd\THis\Z'); ?>
+
+LOCATION:<?= escapeString($GLOBALS["url"].($i)) ?>
+
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:<?= escapeString($titles[$i-1]) ?>
+
+TRANSP:TRANSPARENT
 
 END:VEVENT
-
 <?php 
 		//$startDate = strtotime("+1 days", $startDate);
 		$sd->add(new DateInterval('P1D'));
 	} 
 
 ?>
-
 END:VCALENDAR
-
 <?php 
 	// - full output -
-	$tfeventsical = ob_get_contents();
-	ob_end_clean();
-	echo $tfeventsical;
-
+	
 }

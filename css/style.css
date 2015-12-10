@@ -15,10 +15,13 @@ body{
 }
 
 .day_bg{
+	position: fixed;
+	z-index: 0;
+	width: 640px;
+	height: 1028px;
 	background-image: url(../img/bg.jpg);
-	background-size: cover;
-	background-position: top center;
-	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 .day{

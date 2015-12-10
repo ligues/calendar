@@ -4,7 +4,7 @@ session_start();
 
 header('Content-Type: text/html; charset=utf-8');
 
-$url = "http://localhost/calendar/";
+$url = "http://12diasdemagia.com/";
 
 $startDate = '20151212';
 $endDate = '20151223';
@@ -40,7 +40,7 @@ $command = array_values($requestURI);
 if (count($command) > 0) {
 	if ($command[0] != "") {
 		if ($command[0] == "get") {
-			get_calendar($command[1]);
+			get_calendar($command[1],$command[2]);
 		} else {
 			get_day($command[0]); 
 		}

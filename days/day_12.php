@@ -9,7 +9,7 @@ else{
 
 ?>
 
-<div class="wrapper <?php echo $scroll; ?>" >
+<div class="wrapper <?php echo $scroll; ?>">
 <div class="day container day_12"  id="day_12">
 	<a href="javascript:void(0)" onclick="share(this);" data-url="<?php echo $GLOBALS['url']; ?>12" class="btn btn_comparte">
 		<img src="img/comparte.png">	
@@ -17,3 +17,5 @@ else{
 	<img src="img/day_12.png" class="display">
 </div>
 </div>
+
+<div style="height: 140px; width: 100%"></div>
