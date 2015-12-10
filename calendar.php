@@ -23,9 +23,9 @@ PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:12 Dias de Magia
+X-WR-CALNAME:12 Días de Magia
 X-WR-TIMEZONE:America/Mexico_City
-X-WR-CALDESC:12 Dias de Magia\nhttp://12diasdemagia.com
+X-WR-CALDESC:12 Días de Magia\nhttp://12diasdemagia.com
 <?php
 
 	//$ttime = $hour + 6;
@@ -62,11 +62,11 @@ UID:<?= uniqid() ?>
 
 CREATED:<?= date('Ymd\THis\Z'); ?>
 
-DESCRIPTION:<?= escapeString($descriptions[$i-1]) ?>
+DESCRIPTION:<?= escapeString($descriptions[$i-1]); ?>
 
 LAST-MODIFIED:<?= date('Ymd\THis\Z'); ?>
 
-LOCATION:<?= escapeString($GLOBALS["url"].($i)) ?>
+LOCATION:<?= escapeString($GLOBALS["url"].($i)) . "?s=calendar"; ?>
 
 SEQUENCE:0
 STATUS:CONFIRMED

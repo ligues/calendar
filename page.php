@@ -248,32 +248,32 @@ function get_calendar($hour, $time) {
     
 	$title = array(
 		/*  1 */ "Un lindo detalle para tus fiestas.", /* 1 */
-		/*  2 */ "Una deliciosa receta para tus leftovers.",
-		/*  3 */ "Dale un toque mágico a tu decoración.",
-		/*  4 */ "Tecnología que te pone a bailar.",
+		/*  2 */ "El postre favorito de todos es fácil de hacer.",
+		/*  3 */ "¡Con baterías cargadas la fiesta nunca acaba!",
+		/*  4 */ "Más ahorros significa más regalos bajo el árbol.",
 		/*  5 */ "¡Un intercambio que todos recordarán!",
 		/*  6 */ "Esparce la magia con este lindo detalle.",
 		/*  7 */ "Sin música, ¡no hay fiesta!",
 		/*  8 */ "¡Una dulce receta para los tuyos!",
 		/*  9 */ "Te mereces unas fiestas sin estrés.",
 		/* 10 */ "¡¿Alguien dijo HOLIDAY CHURROS?!",
-		/* 11 */ "¡Súbele el volumen a tus fiestas!",
+		/* 11 */ "A todos nos encanta recibir un lindo detalle.",
 		/* 12 */ "Crea candelabros por arte de magia.");
 
 	
 
 	$description = array(
-		/*  1 */ "Abre la magia haciendo clic en el enlace. Pista: A todos nos encantan las cosas gratis.",
-		/*  2 */ "Abre la magia haciendo clic en el enlace. Pista: 3 maneras de disfrutar el pavito que sobró.",
-		/*  3 */ "Abre la magia haciendo clic en el enlace. Pista: Algo divertido para hacer con los niños.",
-		/*  4 */ "Abre la magia haciendo clic en el enlace. Pista: Calcula cuántos pasos diste en la pista de baile.",
-		/*  5 */ "Abre la magia haciendo clic en el enlace. Pista: Una manera divertida de hacer el tradicional intercambio de regalos.",
+		/*  1 */ "Abre la magia haciendo clic en el enlace. Pista: Dos es mejor que uno.",
+		/*  2 */ "Abre la magia haciendo clic en el enlace. Pista: Muuuucho caramelo.",
+		/*  3 */ "Abre la magia haciendo clic en el enlace. Pista: Un esencial para estas fiestas.",
+		/*  4 */ "Abre la magia haciendo clic en el enlace. Pista: Rellena sus holiday stockings y tus bolsillos",
+		/*  5 */ "Abre la magia haciendo clic en el enlace. Pista: Una manera divertida de intercambiar regalos.",
 		/*  6 */ "Abre la magia haciendo clic en el enlace. Pista: La época se hace alegre con estas decoraciones.",
 		/*  7 */ "Abre la magia haciendo clic en el enlace. Pista: Un accesorio de música que sigue tu ritmo.",
 		/*  8 */ "Abre la magia haciendo clic en el enlace. Pista: Disfrútalo durante un día lluvioso bajo las cobijas.",
 		/*  9 */ "Abre la magia haciendo clic en el enlace. Pista: Menos OOPS. ¡Más WEPA!",
 		/* 10 */ "Abre la magia haciendo clic en el enlace. Pista: Un postre clásico con un dulce twist.",
-		/* 11 */ "Abre la magia haciendo clic en el enlace. Pista: Sonido tan real que creerás que te están dando posadas.",
+		/* 11 */ "Abre la magia haciendo clic en el enlace. Pista: Lo último en tecnología para la familia.",
 		/* 12 */ "Abre la magia haciendo clic en el enlace. Pista: Ilumina tus fiestas con este truco sencillo.");
 
 	$startDate = $GLOBALS["startDate"];
