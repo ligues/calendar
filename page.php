@@ -36,6 +36,9 @@ function get_page() {
 	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
 	    <script src="animation/canvas.assets.js"></script>
 	    <script src="animation/main.js"></script>
+	    <script type="text/javascript">
+	    	
+	    </script>
 	</head>
 	<body onload="init();">
 		<div class="day_bg"></div>
@@ -149,6 +152,9 @@ function get_day($day) {
 	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
 	    <script src="animation/canvas.assets.js"></script>
 	    <script src="animation/main.js"></script>
+	    <script type="text/javascript">
+
+	    </script>
 	</head>
 	<body onload="init();">
 		<div class="day_bg"></div>

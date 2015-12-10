@@ -11,7 +11,7 @@ else{
 
 <div class="wrapper <?php echo $scroll; ?>" >
 <div class="day container day_07"  id="day_7">
-	<a href="http://www.att.com/shop/wireless/accessories/special-offer.html" class="btn btn_aprende">
+	<a onclick="gaTrack('home','click','cta','day_7');" target="_blank" href="http://www.att.com/shop/wireless/accessories/special-offer.html" class="btn btn_aprende">
 		<img src="img/aprende.png">	
 	</a>
 	<img src="img/day_07.png" class="display">

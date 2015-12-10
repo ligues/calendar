@@ -74,6 +74,7 @@
 		// Handles when the user finishes dragging and the animation has been completed, hides the canvas.
 		document.addEventListener('drag-ended', function(){
 			document.getElementById('canvas-intro').style.display = "none";
+			gaTrack('intro','animation','ended','');
 		});
 	</script>
 	

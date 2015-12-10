@@ -2,10 +2,31 @@ var option = "";
 var nua = navigator.userAgent;
 var is_android = ((nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 &&     nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
 var is_iOS = /iPad|iPhone|iPod/.test(navigator.platform);
+var belt = false;
+
+// Function to load and initiate the Analytics tracker
+function gaTracker(id){
+  $.getScript('//www.google-analytics.com/analytics.js'); // jQuery shortcut
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', id, 'auto');
+  ga('send', 'pageview');
+  //ga('send', 'event','home','load','pageview','');
+}
+
+// Function to track a virtual page view
+function gaTrack(category, action,label,value) {
+    console.log(category + ", " +  action + ", " +  label + ", " +  value);
+    //ga('set', { page: path, title: title });
+    //ga('send', 'event',category,action,label,value);
+}
+
+// Initiate the tracker after app has loaded
+//gaTracker('UA-27604548-11');
+
 
 $(function() { 
 
-
+    //DOWNLOAD CALENDAR
 	$('#btnAddCalendar').click(function(e){
 		e.preventDefault();
 		hour = $( "#cboHours option:selected" ).val();
@@ -26,38 +47,69 @@ $(function() {
             location.href=url+"get/"+hour+"/"+visitortimezone;
         }
         
+        if(belt){
+            gaTrack('overlay','click','download','1');
+        }   
+        else{
+            gaTrack('overlay','click','download','0');    
+        }
 
+        
 
         handleOverlayClosed(); 
         $('#download').fadeOut("slow");
 	});
 
+
+    //UTILITY BELT CLICK
     $('#btnDownloadCalendar').click(function(e){
         e.preventDefault();
+
+        gaTrack('belt','click','','');
         
         $('#download').fadeIn("slow", function(){
             $('#downloadOverlay').height($(window).height());
         });
         
-
+        belt = true;
         //$('#download').fadeIn("slow");
     });	
 
+    
+    //NO THANKS
+    $('.no_thanks').click(function(e){
+        if(belt){
+            gaTrack('overlay','click','skip','1');
+        }   
+        else{
+            gaTrack('overlay','click','skip','0');    
+        }
+    });
+
+    //SELECT HOURS
+
+    $('#cboHours').change(function(e){
+        
+        if(belt){
+            gaTrack('overlay','select',$(this).val(),'1');
+        }   
+        else{
+            gaTrack('overlay','select',$(this).val(),'0');    
+        }
+
+    })
+
+    //INIT SCROLL
 	$('.scroll').jscroll({
     loadingHtml: '',
     padding: 20,
-    //debug:true,
     nextSelector: '.next a:last',
-    //autoTrigger: false,
-    contentSelector: '.wrapper',
-    callback: function(){
-    	//debugger;
-    	//console.log($(this).html());
-    }
+    contentSelector: '.wrapper'
 	}); 
 
 
     $("#video_flan").bind("ended", function() {
+
         if (document.exitFullscreen) {
             document.exitFullscreen();
         } else if (document.webkitExitFullScreen) {
@@ -76,6 +128,7 @@ $(function() {
     });
 
     $("#video_chocolate").bind("ended", function() {
+        
         if (document.exitFullscreen) {
             document.exitFullscreen();
         } else if (document.webkitExitFullScreen) {
@@ -94,6 +147,8 @@ $(function() {
     });
 
     $("#video_churro").bind("ended", function() {
+        
+
         if (document.exitFullscreen) {
             document.exitFullscreen();
         } else if (document.webkitExitFullScreen) {
@@ -150,6 +205,7 @@ $(function() {
     
 });
 
+//EVENT SHARE
 function share(obj) {
     var post = $(obj).data("url");
 
@@ -157,8 +213,11 @@ function share(obj) {
     return false;
 }
 
+//CLOSE VIDEO
 function closeVideo() {
     var video = document.getElementById("video_"+option);
+
+    gaTrack('video','click','ended',option);
 
     video.pause();
     video.currentTime = 0;
@@ -168,10 +227,11 @@ function closeVideo() {
     $("html").show();
 }
 
-
-
+//PLAY VIDEO
 function play_video(current){
     option = current;
+
+    gaTrack('video','click','play',current);
 
     var video = document.getElementById("video_" + option);    
     

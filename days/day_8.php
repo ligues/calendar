@@ -11,12 +11,13 @@ else{
 
 <div class="wrapper <?php echo $scroll; ?>" >
 <div class="day container day_08"  id="day_8">
-	<a href="javascript:void(0)" onclick="share(this);" data-url="<?php echo $GLOBALS['url']; ?>8" class="btn btn_comparte">
+	<a href="javascript:void(0)" onclick="share(this);gaTrack('home','click','share','day_8');" data-url="<?php echo $GLOBALS['url']; ?>8?s=facebook" class="btn btn_comparte">
 		<img src="img/comparte.png">	
 	</a>
 	<a href="javascript:void(0)" onclick="play_video('chocolate');" class="btn btn_video">
-		<img src="img/play.png">	
+		<img src="img/play.png">
 	</a>
+	<img src="img/day_08.png" class="display">
 	
 </div>
 
