@@ -21,9 +21,10 @@ function get_page() {
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title></title>
+		<title>AT&amp;T: 12 Días de Magia</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=640, user-scalable=no">
+		<?php print_meta(0); ?>
 		<link rel="stylesheet" href="css/normalize.min.css">
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/fonts/style.css">
@@ -108,8 +109,6 @@ function get_page() {
 			<?php include("days/day_".$day.".php"); ?>
 		</div>
 
-		<?php print_meta($day); ?>
-
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
@@ -131,7 +130,7 @@ function get_day($day) {
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title></title>
+		<title>AT&amp;T: 12 Días de Magia</title>
 		<meta name="description" content="">
 		
 		<meta name="viewport" content="width=640, user-scalable=no">
@@ -304,9 +303,11 @@ function print_meta($day){
 	global $meta;
 
 
-	$title = "Default Title";
-	$description = "Default Description";
-	$image = $meta[0][3];
+	$title = "AT&amp;T: 12 Días de Magia";
+	$description = "Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!";
+	$image = 'default.jpg';
+
+
 
 	for ($i=0; $i < count($meta) ; $i++) { 
 		
