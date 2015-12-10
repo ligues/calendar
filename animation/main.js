@@ -53,8 +53,8 @@ function handleIntro2Ended(evt){
     listenermove = exportRoot.inv.on('pressmove', handleTouch);
     listenerup = exportRoot.inv.on('pressup', handleTouch);
     listenerupdate = exportRoot.on('tick', update);
-    minframe = currentframe = 90+48;
-    maxframe = 107+48;
+    minframe = currentframe = 90+48+12;
+    maxframe = 107+48+12;
     limitframe = minframe + Math.round(maxframe-minframe>>1);
 }
 

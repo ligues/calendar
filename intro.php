@@ -1,6 +1,6 @@
 
 <div class="home container">
-	<a href="javascript:void(0);" id="btnDownloadCalendar" download>
+	<a href="javascript:void(0);" id="btnDownloadCalendar">
 		<img src="img/download_button.png" class="downloadButton">
 	</a>
 	<div id="download">

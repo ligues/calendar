@@ -15,7 +15,6 @@ else{
 		<img src="img/comparte.png">	
 	</a>
 	<img src="img/day_12.png" class="display">
+	<div style="height: 160px; width: 100%"></div>
 </div>
 </div>
-
-<div style="height: 140px; width: 100%"></div>

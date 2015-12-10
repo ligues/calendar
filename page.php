@@ -13,7 +13,7 @@ $meta = array
 
 
 
-function get_page() {
+function get_page($from) {
 
 ?>
 <!doctype html>
@@ -36,9 +36,6 @@ function get_page() {
 	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
 	    <script src="animation/canvas.assets.js"></script>
 	    <script src="animation/main.js"></script>
-	    <script type="text/javascript">
-	    	
-	    </script>
 	</head>
 	<body onload="init();">
 		<div class="day_bg"></div>
@@ -118,6 +115,9 @@ function get_page() {
 		<script src="js/vendor/jquery.jscroll.min.js"></script>
 		<script src="js/vendor/jquery.cookie.js"></script>
 		<script src="js/main.js"></script>
+		<script type="text/javascript">
+			gaTrack('home','origin','<?php echo $from; ?>','');
+		</script>
 	</body>
 </html>
 
@@ -127,6 +127,13 @@ function get_page() {
 
 
 function get_day($day, $from) {
+	
+	if (isset($_SERVER["HTTP_REFERER"])) {
+		$referer = parse_url($_SERVER['HTTP_REFERER']);
+		$host = explode(".", $referer['host']);
+		$from = $host[1];
+	}
+
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -152,9 +159,6 @@ function get_day($day, $from) {
 	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
 	    <script src="animation/canvas.assets.js"></script>
 	    <script src="animation/main.js"></script>
-	    <script type="text/javascript">
-
-	    </script>
 	</head>
 	<body onload="init();">
 		<div class="day_bg"></div>
@@ -238,7 +242,7 @@ function get_day($day, $from) {
 		<script src="js/vendor/jquery.cookie.js"></script>
 		<script src="js/main.js"></script>
 		<script type="text/javascript">
-			gaTrack('home','origin','','');
+			gaTrack('home','origin','<?php echo $from; ?>','');
 		</script>
 	</body>
 </html>
@@ -313,7 +317,7 @@ function print_meta($day){
 	$description = "Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!";
 	$image = 'default.jpg';
 
-
+	$uri = explode("?",$_SERVER['REQUEST_URI']);
 
 	for ($i=0; $i < count($meta) ; $i++) { 
 		
@@ -325,7 +329,7 @@ function print_meta($day){
 
 	}
 
-	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?f=facebook";
+	$actual_link = "http://$_SERVER[HTTP_HOST]$uri[0]";
 
 	echo "<meta property='og:title' content='".$title."' />\n";
 	echo "<meta property='og:type' content='website' />\n";

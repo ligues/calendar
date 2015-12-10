@@ -1,6 +1,5 @@
 var option = "";
-var nua = navigator.userAgent;
-var is_android = ((nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 &&     nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
+var is_android = /Android/i.test(navigator.userAgent);
 var is_iOS = /iPad|iPhone|iPod/.test(navigator.platform);
 var belt = false;
 
@@ -23,8 +22,6 @@ function gaTrack(category, action,label,value) {
 
 // Initiate the tracker after app has loaded
 gaTracker('UA-27604548-11');
-
-    $.removeCookie('calendar');
 
 $(function() { 
 

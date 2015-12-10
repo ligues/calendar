@@ -6,8 +6,8 @@ header('Content-Type: text/html; charset=utf-8');
 
 $url = "http://12diasdemagia.com/";
 
-$startDate = '20151212';
-$endDate = '20151223';
+$startDate = '20151210';
+$endDate = '20151221';
 $totalDays = '12';
 
 require_once("page.php");
@@ -36,20 +36,24 @@ for ($i= 0; $i < sizeof($scriptName); $i++)
 }
 
 $command = array_values($requestURI);
+$from = "direct";
+if(isset($_GET['f'])) { 
+	$from = $_GET['f'];
+} 
 
 if (count($command) > 0) {
 	if ($command[0] != "") {
 		if ($command[0] == "get") {
 			get_calendar($command[1],$command[2]);
 		} else {
-			$from = $_GET['f'];
-			get_day($command[0], $from); 
+			$param = explode("?",$command[0]);
+			get_day($param[0], $from); 
 		}
 	} else {
-		get_page();	
+		get_page($from);	
 	}
 } else {
-	get_page();	
+	get_page($from);	
 }
 
 
