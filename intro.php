@@ -4,7 +4,10 @@
 		<img src="img/download_button.png" class="downloadButton">
 	</a>
 	<div id="download">
-		<img id="downloadOverlay" src="img/background.png" class="display">
+		<img id="downloadOverlay" src="img/overlay_bg.png" class="display">
+
+		<img id="instructionsAndroid" src="img/overlay_android.png" class="display instructions" style="display: none">
+		<img id="instructionsIOS" src="img/overlay_ios.png" class="display instructions" style="display: block">
 
 		<div class="hours">
 			<label class="custom-select">

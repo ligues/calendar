@@ -96,14 +96,20 @@ body{
 	width: 100%;
 }
 
+.home .instructions {
+	width: 80%;
+	position: relative;
+	padding-top: 70%;
+}
+
 .home .hours {
 	width: 300px;
 	margin: 0 auto;
-	padding-top: 92%;
+	padding-top: 4%;
 }
 
 .home .add_button {
-	width: 100%;
+	width: 80%;
 	margin: 0 auto;
 	position: relative;
 	padding-top: 60px;
@@ -124,6 +130,7 @@ body{
 
 .home .no_thanks a {
 	font-family: 'omnes_att_iiitalic', "Helvetica", "Arial", sans-serif;
+	font-size: 20px;
 	color: #f56e04;
 }
 

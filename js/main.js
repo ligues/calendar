@@ -23,8 +23,17 @@ function gaTrack(category, action,label,value) {
 // Initiate the tracker after app has loaded
 //gaTracker('UA-27604548-11');
 
+    $.removeCookie('calendar');
 
 $(function() { 
+
+    if (is_android) {
+        $('#instructionsAndroid').show();
+        $('#instructionsIOS').hide();
+    } else {
+        $('#instructionsAndroid').hide();
+        $('#instructionsIOS').show();
+    }
 
     //DOWNLOAD CALENDAR
 	$('#btnAddCalendar').click(function(e){
