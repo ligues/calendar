@@ -21,7 +21,7 @@ function gaTrack(category, action,label,value) {
 }
 
 // Initiate the tracker after app has loaded
-//gaTracker('UA-27604548-11');
+gaTracker('UA-27604548-11');
 
     $.removeCookie('calendar');
 
