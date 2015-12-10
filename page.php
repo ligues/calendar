@@ -238,7 +238,7 @@ function get_day($day, $from) {
 		<script src="js/vendor/jquery.cookie.js"></script>
 		<script src="js/main.js"></script>
 		<script type="text/javascript">
-			
+			gaTrack('home','origin','','');
 		</script>
 	</body>
 </html>
