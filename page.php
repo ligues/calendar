@@ -207,7 +207,7 @@ function get_day($day, $from) {
 
 			$scroll_day = $diffdays;
 
-			$scroll_day = 12;
+			//$scroll_day = 12;
 
 			//echo "<script>alert('".$scroll_day."')</script>";
 
