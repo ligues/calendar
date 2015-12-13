@@ -152,7 +152,7 @@ function get_day($day, $from) {
 						include("days/day_".$i.".php");	
 					}
 				}
-			
+			 
 				$quit_scroll = false;
 
 				if ($day <= $diffdays) {

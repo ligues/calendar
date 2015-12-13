@@ -62,7 +62,7 @@
 			if ($.cookie('calendar')) {
 				handleOverlayClosed();
 			} else {
-				$('#download').fadeIn("slow");
+				$('#download').fadeIn("slow"); 
 			}
 
 			$('.days').css("visibility","visible");
