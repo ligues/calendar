@@ -11,119 +11,35 @@ $meta = array
   array("12","Candelabro hecho en casa","Es la época de compartir, por eso te traemos un poco de magia. ¡Descubre 12 días de recetas, ideas festivas y ofertas increíbles aquí!","CANDLES.jpg"),
   );
 
-
-
 function get_page($from) {
+	$startDate = $GLOBALS["startDate"];
+	$endDate = $GLOBALS["endDate"];
 
-?>
-<!doctype html>
-<html class="no-js" lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>AT&amp;T: 12 Días de Magia</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=640, user-scalable=no">
-		<?php print_meta(0); ?>
-		<link rel="stylesheet" href="css/normalize.min.css">
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/fonts/style.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
-		<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
-	    <script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
-	    <script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
-	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
-	    <script src="animation/canvas.assets.js"></script>
-	    <script src="animation/main.js"></script>
-	</head>
-	<body onload="init();">
-		<div class="day_bg"></div>
+	$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 
+	$today->sub(new DateInterval('PT4H'));
 
-		<div id="videoContent" style="display: none">
-			<video id="video_flan" class="video" preload="none" style="display: none" controls>
-				<source src="videos/flan.mp4" type="video/mp4">
-				<source src="videos/flan.ogv" type="video/ogg">
-				Your browser does not support the video tag.
-			</video>
+	$day = $today->format("d");
 
-			<video id="video_chocolate" class="video" preload="none" style="display: none" controls>
-				<source src="videos/chocolate.mp4" type="video/mp4">
-				<source src="videos/chocolate.ogv" type="video/ogg">
-				Your browser does not support the video tag.
-			</video>
+	$month = date("n");
+	$startDay = date("j", strtotime($startDate));
+	$endDay = date("j", strtotime($endDate));
 
-			<video id="video_churro" class="video" preload="none" style="display: none" controls>
-				<source src="videos/churro.mp4" type="video/mp4">
-				<source src="videos/churro.ogv" type="video/ogg">
-				Your browser does not support the video tag.
-			</video>
-		</div>
-		
-
-		<?php 
-		$startDate = $GLOBALS["startDate"];
-		$endDate = $GLOBALS["endDate"];
-
-		$day = date("j");
-		$month = date("n");
-		$startDay = date("j", strtotime($startDate));
-		$endDay = date("j", strtotime($endDate));
-
-		if ($month == 12) {
-			if ($day <= $startDay) {
-				$day = 1;
-			} else {
-				if ($day >= $endDay) {
-					$day = $GLOBALS["totalDays"];
-				} else {
-					$day = $day - ($GLOBALS["totalDays"] - 1);
-				}
-			}
+	if ($month == 12) {
+		if ($day <= $startDay) {
+			$day = 1;
 		} else {
-			$day = $GLOBALS["totalDays"];
+			if ($day >= $endDay) {
+				$day = $GLOBALS["totalDays"];
+			} else {
+				$day = $day - $startDay + 1;
+			}
 		}
+	} else {
+		$day = $GLOBALS["totalDays"];
+	}
 
-		$start = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone("UTC"));
-		$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 
-		$today->add(new DateInterval('P1D'));
-
-		$diffdays = 0;
-		
-		if ($today > $start) {
-			$days = $start->diff($today);
-			$diffdays = $days->days;
-			$start = $today;
-			$start->sub(new DateInterval('P1D'));
-		}
-
-		$scroll_day = $diffdays;
-
-		$scroll_day = 12;
-
-		?>	
-
-		<?php include("intro.php"); ?>
-		
-		<div class="days">
-			<?php include("days/day_".$day.".php"); ?>
-		</div>
-
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
-		<script src="js/vendor/jquery.jscroll.min.js"></script>
-		<script src="js/vendor/jquery.cookie.js"></script>
-		<script src="js/main.js"></script>
-		<script type="text/javascript">
-			gaTrack('home','origin','<?php echo $from; ?>','');
-		</script>
-	</body>
-</html>
-
-	<?php
+	get_day($day, $from);
 }
-
 
 
 function get_day($day, $from) {
@@ -159,6 +75,16 @@ function get_day($day, $from) {
 	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
 	    <script src="animation/canvas.assets.js"></script>
 	    <script src="animation/main.js"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+		<script src="js/vendor/jquery.jscroll.min.js"></script>
+		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
+		<script src="js/vendor/jquery.cookie.js"></script>
+		<script src="js/vendor/jquery.waypoints.js"></script>
+		<script src="js/main.js"></script>
+	    <script type="text/javascript">
+	    	var scrollDay = 1;
+	    </script>
 	</head>
 	<body onload="init();">
 		<div class="day_bg"></div>
@@ -185,13 +111,15 @@ function get_day($day, $from) {
 		</div>
 
 		<div class="days">
-		<?php 
 
+		<?php 
 
 			$startDate = $GLOBALS["startDate"];
 
 			$start = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone("UTC"));
 			$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 
+			//$today = DateTime::createFromFormat("Ymd", '20151221', new DateTimeZone('UTC')); 
+			$today->sub(new DateInterval('PT4H'));
 			$today->add(new DateInterval('P1D'));
 
 			$diffdays = 0;
@@ -207,10 +135,6 @@ function get_day($day, $from) {
 
 			$scroll_day = $diffdays;
 
-			$scroll_day = 12;
-
-			//echo "<script>alert('".$scroll_day."')</script>";
-
 
 			/* AJAX check  */
 			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -219,30 +143,35 @@ function get_day($day, $from) {
 				include("days/day_".$day.".php"); 	
 			}
 			else{
+				global $quit_scroll;
 
+				
 				for ($i=1; $i < $day; $i++) { 
-					global $quit_scroll;
 					$quit_scroll = true;
-					include("days/day_".$i.".php");	
+					if ($i <= $diffdays) {
+						include("days/day_".$i.".php");	
+					}
 				}
-
+			
 				$quit_scroll = false;
-				include("days/day_".$day.".php"); 	
+
+				if ($day <= $diffdays) {
+					include("days/day_".$day.".php");
+
+					echo "<script>scrollDay = '$day'; currentScrollDay = $day;</script>";
+				} else {
+					include("days/future.php");
+					
+					echo "<script>scrollDay = '00'; currentScrollDay = 0;</script>";
+				}				
+				
 			}
 			
 		?>
 		</div>
 
-		
-
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-		<script src="js/vendor/jquery.jscroll.min.js"></script>
-		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
-		<script src="js/vendor/jquery.cookie.js"></script>
-		<script src="js/main.js"></script>
 		<script type="text/javascript">
-			gaTrack('home','origin','<?php echo $from; ?>','');
+			gaTrack('home','origin','<?php echo $from; ?>',0);
 		</script>
 	</body>
 </html>

@@ -1,7 +1,11 @@
 var option = "";
+var video_day = "";
 var is_android = /Android/i.test(navigator.userAgent);
 var is_iOS = /iPad|iPhone|iPod/.test(navigator.platform);
 var belt = false;
+var wpActive = false;
+var currentScrollDay = 1;
+var d = new Array(13);
 
 // Function to load and initiate the Analytics tracker
 function gaTracker(id){
@@ -22,6 +26,66 @@ function gaTrack(category, action,label,value) {
 
 // Initiate the tracker after app has loaded
 gaTracker('UA-27604548-11');
+
+function createWayPoint(id) {
+    switch(id) {
+        case "2": case 2:
+            d[2] = $('#day_2').waypoint(function(direction) {
+                gaTrack("home","scroll","day",2);
+            });
+            break;
+        case "3": case 3:
+            d[3] = $('#day_3').waypoint(function(direction) {
+                gaTrack("home","scroll","day",3);
+            });
+            break;
+        case "4": case 4:
+            d[4] = $('#day_4').waypoint(function(direction) {
+                gaTrack("home","scroll","day",4);
+            });
+            break;
+        case "5": case 5:
+            d[5] = $('#day_5').waypoint(function(direction) {
+                gaTrack("home","scroll","day",5);
+            });
+            break;
+        case "6": case 6:
+            d[6] = $('#day_6').waypoint(function(direction) {
+                gaTrack("home","scroll","day",6);
+            });
+            break;
+        case "7": case 7:
+            d[7] = $('#day_7').waypoint(function(direction) {
+                gaTrack("home","scroll","day",7);
+            });
+            break;
+        case "8": case 8:
+            d[8] = $('#day_8').waypoint(function(direction) {
+                gaTrack("home","scroll","day",8);
+            });
+            break;
+        case "9": case 9:
+            d[9] = $('#day_9').waypoint(function(direction) {
+                gaTrack("home","scroll","day",9);
+            });
+            break;
+        case "10": case 10:
+            d[10] = $('#day_10').waypoint(function(direction) {
+                gaTrack("home","scroll","day",10);
+            });
+            break;
+        case "11": case 11:
+            d[11] = $('#day_11').waypoint(function(direction) {
+                gaTrack("home","scroll","day",11);
+            });
+            break;
+        case "12": case 12:
+            d[12] = $('#day_12').waypoint(function(direction) {
+                gaTrack("home","scroll","day",12);
+            });
+            break;
+    }
+}
 
 $(function() { 
 
@@ -61,8 +125,6 @@ $(function() {
             gaTrack('overlay','click','download','0');    
         }
 
-        
-
         handleOverlayClosed(); 
         $('#download').fadeOut("slow");
 	});
@@ -72,7 +134,7 @@ $(function() {
     $('#btnDownloadCalendar').click(function(e){
         e.preventDefault();
 
-        gaTrack('belt','click','','');
+        gaTrack('belt','click','',0);
         
         $('#download').fadeIn("slow", function(){
             $('#downloadOverlay').height($(window).height());
@@ -108,12 +170,105 @@ $(function() {
 
     //INIT SCROLL
 	$('.scroll').jscroll({
-    loadingHtml: '',
-    padding: 20,
-    nextSelector: '.next a:last',
-    contentSelector: '.wrapper'
+        loadingHtml: '',
+        padding: 20,
+        nextSelector: '.next a:last',
+        contentSelector: '.wrapper',
+        callback: function() {
+            //createWayPoint(currentScrollDay);
+            //gaTrack("home","scroll","day",currentScrollDay);
+
+            currentScrollDay += 1;
+            createWayPoint(currentScrollDay);
+
+            if ($("#day_00").length) {
+                d[0] = $('#day_00').waypoint(function(direction) {
+                    if (wpActive) {
+                        gaTrack("home","scroll","day",0);
+                    }
+                });
+            }
+
+        }
 	}); 
 
+    d[0] = $('#day_00').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",0);
+        }
+    });
+
+    d[1] = $('#scrollDay1').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",1);
+        }
+    });
+
+    d[2] = $('#day_2').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",2);
+        }
+    });
+
+    d[3] = $('#day_3').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",3);
+        }
+    });
+
+    d[4] = $('#day_4').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",4);
+        }
+    });
+
+    d[5] = $('#day_5').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",5);
+        }
+    });
+
+    d[6] = $('#day_6').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",6);
+        }
+    });
+
+    d[7] = $('#day_7').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",7);
+        }
+    });
+
+    d[8] = $('#day_8').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",8);
+        }
+    });
+
+    d[9] = $('#day_9').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",9);
+        }
+    });
+
+    d[10] = $('#day_10').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",10);
+        }
+    });
+
+    d[11] = $('#day_11').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",11);
+        }
+    });
+
+    d[12] = $('#day_12').waypoint(function(direction) {
+        if (wpActive) {
+            gaTrack("home","scroll","day",12);
+        }
+    });
 
     $("#video_flan").bind("ended", function() {
 
@@ -224,7 +379,7 @@ function share(obj) {
 function closeVideo() {
     var video = document.getElementById("video_"+option);
 
-    gaTrack('video','click','ended',option);
+    gaTrack('video','click','ended',video_day);
 
     video.pause();
     video.currentTime = 0;
@@ -235,10 +390,11 @@ function closeVideo() {
 }
 
 //PLAY VIDEO
-function play_video(current){
+function play_video(current, day){
     option = current;
+    video_day = day;
 
-    gaTrack('video','click','play',current);
+    gaTrack('video','click','play',day);
 
     var video = document.getElementById("video_" + option);    
     

@@ -14,7 +14,7 @@ else{
 	<a href="javascript:void(0)" onclick="share(this);gaTrack('home','click','share','day_8');" data-url="<?php echo $GLOBALS['url']; ?>8" class="btn btn_comparte">
 		<img src="img/comparte.png">	
 	</a>
-	<a href="javascript:void(0)" onclick="play_video('chocolate');" class="btn btn_video">
+	<a href="javascript:void(0)" onclick="play_video('chocolate', 8);" class="btn btn_video">
 		<img src="img/play.png">
 	</a>
 	<img src="img/day_08.png" class="display">

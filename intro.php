@@ -68,8 +68,10 @@
 			$('.days').css("visibility","visible");
 			$('.downloadButton').css("visibility","visible");
 
+			gaTrack("home","load","pageview",scrollDay);
+
 			$('html, body').animate({
-		        scrollTop: $("#day_<?php echo $day; ?>").offset().top
+		        scrollTop: $("#day_"+scrollDay).offset().top
 		    }, 0);
 			
 		});		
@@ -77,7 +79,8 @@
 		// Handles when the user finishes dragging and the animation has been completed, hides the canvas.
 		document.addEventListener('drag-ended', function(){
 			document.getElementById('canvas-intro').style.display = "none";
-			gaTrack('intro','animation','ended','');
+			gaTrack('intro','animation','ended',0);
+			wpActive = true;
 		});
 	</script>
 	
