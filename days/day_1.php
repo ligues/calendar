@@ -12,7 +12,7 @@ else{
 <div class="<?php echo $scroll; ?>" >
 
 	<div class="day container day_01" id="day_1">
-		<a onclick="gaTrack('home','click','cta','day_1');" target="_blank" href="https://www.att.com/es-us/shop/wireless/bundles-free-lg-g-pad-f-8.html" class="btn btn_aprende">
+		<a onclick="gaTrack('home','click','cta_1',1);" target="_blank" href="https://www.att.com/es-us/shop/wireless/bundles-free-lg-g-pad-f-8.html" class="btn btn_aprende">
 			<img src="img/aprende.png">	
 			<div id="scrollDay1"></div>
 		</a>

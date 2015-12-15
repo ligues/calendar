@@ -15,8 +15,8 @@ function get_page($from) {
 	$startDate = $GLOBALS["startDate"];
 	$endDate = $GLOBALS["endDate"];
 
-	$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 
-	$today->sub(new DateInterval('PT4H'));
+	$today = DateTime::createFromFormat("YmdHis", date('YmdHis'), new DateTimeZone('UTC')); 
+	$today->sub(new DateInterval('PT6H'));
 
 	$day = $today->format("d");
 
@@ -38,6 +38,7 @@ function get_page($from) {
 		$day = $GLOBALS["totalDays"];
 	}
 
+	echo "<script>console.log('today: ".date_format($today, 'Y-m-d H:i:s')."')</script>";
 	get_day($day, $from);
 }
 
@@ -68,26 +69,16 @@ function get_day($day, $from) {
 
 		<?php print_meta($day); ?>
 
-		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
-		<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
-	    <script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
-	    <script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
-	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
-	    <script src="animation/canvas.assets.js"></script>
-	    <script src="animation/main.js"></script>
-	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-		<script src="js/vendor/jquery.jscroll.min.js"></script>
-		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
-		<script src="js/vendor/jquery.cookie.js"></script>
-		<script src="js/vendor/jquery.waypoints.js"></script>
-		<script src="js/main.js"></script>
+		
 	    <script type="text/javascript">
 	    	var scrollDay = 1;
 	    </script>
 	</head>
 	<body onload="init();">
 		<div class="day_bg"></div>
+		<div id="loading" style="width: 640px; margin: 0 auto;">
+			<img src="img/loading.png" class="display" style="position: fixed; z-index: 100; top: 25%">
+		</div>
 		<?php include("intro.php"); ?>
 
 		<div id="videoContent" style="display: none">
@@ -114,13 +105,15 @@ function get_day($day, $from) {
 
 		<?php 
 
-			$startDate = $GLOBALS["startDate"];
+			$startDate = $GLOBALS["startDate"].'000000';
 
-			$start = DateTime::createFromFormat("Ymd", $startDate, new DateTimeZone("UTC"));
-			$today = DateTime::createFromFormat("Ymd", date('Ymd'), new DateTimeZone('UTC')); 
+			$start = DateTime::createFromFormat("YmdHis", $startDate, new DateTimeZone("UTC"));
+			$today = DateTime::createFromFormat("YmdHis", date('YmdHis'), new DateTimeZone('UTC'));
 			//$today = DateTime::createFromFormat("Ymd", '20151221', new DateTimeZone('UTC')); 
-			$today->sub(new DateInterval('PT4H'));
+			$today->sub(new DateInterval('PT6H'));
 			$today->add(new DateInterval('P1D'));
+
+			echo "<script>console.log('start: ".date_format($start, 'Y-m-d H:i:s')."')</script>";
 
 			$diffdays = 0;
 			
@@ -140,7 +133,7 @@ function get_day($day, $from) {
 			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 				
 				$quit_scroll = false;
-				include("days/day_".$day.".php"); 	
+				include("days/day_".$day.".php");
 			}
 			else{
 				global $quit_scroll;
@@ -170,6 +163,20 @@ function get_day($day, $from) {
 		?>
 		</div>
 
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
+	    <script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+	    <script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
+	    <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+	    <script src="animation/canvas.assets.js"></script>
+	    <script src="animation/main.js"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+		<script src="js/vendor/jquery.jscroll.min.js"></script>
+		<script type="text/javascript">var url="<?php echo $GLOBALS['url']; ?>";</script>
+		<script src="js/vendor/jquery.cookie.js"></script>
+		<script src="js/vendor/jquery.waypoints.js"></script>
+		<script src="js/main.js"></script>
 		<script type="text/javascript">
 			gaTrack('home','origin','<?php echo $from; ?>',0);
 		</script>

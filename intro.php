@@ -53,14 +53,22 @@
 		</div>
 
 		<div class="no_thanks">
-			<a href="javascript:void(0)" onclick="handleOverlayClosed(); document.getElementById('download').style.display='none';">No gracias, lo descargaré más tarde</a>
+			<a href="javascript:void(0)" onclick="overlayClose();">No gracias, lo descargaré más tarde</a>
 		</div>
 	</div>
 	<script>
+		function overlayClose() {
+			handleOverlayClosed(); 
+			$('#loading').hide();
+			$('#download').fadeOut(500);
+			$('#canvas-intro').fadeOut(500);
+		}
 		// Handles when first part of the intro has ended and the overlay needs to be shown
 		document.addEventListener('intro-ended', function(){
+			gaTrack('intro','animation','ended',0);
+			
 			if ($.cookie('calendar')) {
-				handleOverlayClosed();
+				overlayClose();
 			} else {
 				$('#download').fadeIn("slow"); 
 			}
@@ -68,7 +76,7 @@
 			$('.days').css("visibility","visible");
 			$('.downloadButton').css("visibility","visible");
 
-			gaTrack("home","load","pageview",scrollDay);
+			gaTrack("home","load","pageview_"+scrollDay,scrollDay);
 
 			$('html, body').animate({
 		        scrollTop: $("#day_"+scrollDay).offset().top

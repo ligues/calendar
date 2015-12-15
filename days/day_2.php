@@ -11,7 +11,7 @@ else{
 
 <div class="wrapper <?php echo $scroll; ?>" >
 	<div class="day container day_02" id="day_2">
-		<a href="javascript:void(0)" onclick="share(this);gaTrack('home','click','share','day_2');" data-url="<?php echo $GLOBALS['url']; ?>2" class="btn btn_comparte">
+		<a href="javascript:void(0)" onclick="share(this);gaTrack('home','click','share_2',2);" data-url="<?php echo $GLOBALS['url']; ?>2" class="btn btn_comparte">
 			<img src="img/comparte.png">	
 		</a>
 		<a href="javascript:void(0)" onclick="play_video('flan', 2)" class="btn btn_video">

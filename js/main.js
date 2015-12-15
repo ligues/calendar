@@ -31,57 +31,57 @@ function createWayPoint(id) {
     switch(id) {
         case "2": case 2:
             d[2] = $('#day_2').waypoint(function(direction) {
-                gaTrack("home","scroll","day",2);
+                gaTrack("home","scroll","day_2",2);
             });
             break;
         case "3": case 3:
             d[3] = $('#day_3').waypoint(function(direction) {
-                gaTrack("home","scroll","day",3);
+                gaTrack("home","scroll","day_3",3);
             });
             break;
         case "4": case 4:
             d[4] = $('#day_4').waypoint(function(direction) {
-                gaTrack("home","scroll","day",4);
+                gaTrack("home","scroll","day_4",4);
             });
             break;
         case "5": case 5:
             d[5] = $('#day_5').waypoint(function(direction) {
-                gaTrack("home","scroll","day",5);
+                gaTrack("home","scroll","day_5",5);
             });
             break;
         case "6": case 6:
             d[6] = $('#day_6').waypoint(function(direction) {
-                gaTrack("home","scroll","day",6);
+                gaTrack("home","scroll","day_6",6);
             });
             break;
         case "7": case 7:
             d[7] = $('#day_7').waypoint(function(direction) {
-                gaTrack("home","scroll","day",7);
+                gaTrack("home","scroll","day_7",7);
             });
             break;
         case "8": case 8:
             d[8] = $('#day_8').waypoint(function(direction) {
-                gaTrack("home","scroll","day",8);
+                gaTrack("home","scroll","day_8",8);
             });
             break;
         case "9": case 9:
             d[9] = $('#day_9').waypoint(function(direction) {
-                gaTrack("home","scroll","day",9);
+                gaTrack("home","scroll","day_9",9);
             });
             break;
         case "10": case 10:
             d[10] = $('#day_10').waypoint(function(direction) {
-                gaTrack("home","scroll","day",10);
+                gaTrack("home","scroll","day_10",10);
             });
             break;
         case "11": case 11:
             d[11] = $('#day_11').waypoint(function(direction) {
-                gaTrack("home","scroll","day",11);
+                gaTrack("home","scroll","day_11",11);
             });
             break;
         case "12": case 12:
             d[12] = $('#day_12').waypoint(function(direction) {
-                gaTrack("home","scroll","day",12);
+                gaTrack("home","scroll","day_12",12);
             });
             break;
     }
@@ -119,13 +119,13 @@ $(function() {
         }
         
         if(belt){
-            gaTrack('overlay','click','download','1');
+            gaTrack('overlay','click','download',1);
         }   
         else{
-            gaTrack('overlay','click','download','0');    
+            gaTrack('overlay','click','download',0);    
         }
 
-        handleOverlayClosed(); 
+        overlayClose();
         $('#download').fadeOut("slow");
 	});
 
@@ -148,10 +148,10 @@ $(function() {
     //NO THANKS
     $('.no_thanks').click(function(e){
         if(belt){
-            gaTrack('overlay','click','skip','1');
+            gaTrack('overlay','click','skip',1);
         }   
         else{
-            gaTrack('overlay','click','skip','0');    
+            gaTrack('overlay','click','skip',0);    
         }
     });
 
@@ -160,10 +160,10 @@ $(function() {
     $('#cboHours').change(function(e){
         
         if(belt){
-            gaTrack('overlay','select',$(this).val(),'1');
+            gaTrack('overlay','select',$(this).val(),1);
         }   
         else{
-            gaTrack('overlay','select',$(this).val(),'0');    
+            gaTrack('overlay','select',$(this).val(),0);    
         }
 
     })
@@ -184,7 +184,7 @@ $(function() {
             if ($("#day_00").length) {
                 d[0] = $('#day_00').waypoint(function(direction) {
                     if (wpActive) {
-                        gaTrack("home","scroll","day",0);
+                        gaTrack("home","scroll","day_future",0);
                     }
                 });
             }
@@ -194,79 +194,79 @@ $(function() {
 
     d[0] = $('#day_00').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",0);
+            gaTrack("home","scroll","day_future",0);
         }
     });
 
     d[1] = $('#scrollDay1').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",1);
+            gaTrack("home","scroll","day_1",1);
         }
     });
 
     d[2] = $('#day_2').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",2);
+            gaTrack("home","scroll","day_2",2);
         }
     });
 
     d[3] = $('#day_3').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",3);
+            gaTrack("home","scroll","day_3",3);
         }
     });
 
     d[4] = $('#day_4').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",4);
+            gaTrack("home","scroll","day_4",4);
         }
     });
 
     d[5] = $('#day_5').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",5);
+            gaTrack("home","scroll","day_5",5);
         }
     });
 
     d[6] = $('#day_6').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",6);
+            gaTrack("home","scroll","day_6",6);
         }
     });
 
     d[7] = $('#day_7').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",7);
+            gaTrack("home","scroll","day_7",7);
         }
     });
 
     d[8] = $('#day_8').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",8);
+            gaTrack("home","scroll","day_8",8);
         }
     });
 
     d[9] = $('#day_9').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",9);
+            gaTrack("home","scroll","day_9",9);
         }
     });
 
     d[10] = $('#day_10').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",10);
+            gaTrack("home","scroll","day_10",10);
         }
     });
 
     d[11] = $('#day_11').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",11);
+            gaTrack("home","scroll","day_11",11);
         }
     });
 
     d[12] = $('#day_12').waypoint(function(direction) {
         if (wpActive) {
-            gaTrack("home","scroll","day",12);
+            gaTrack("home","scroll","day_12",12);
         }
     });
 
@@ -379,7 +379,7 @@ function share(obj) {
 function closeVideo() {
     var video = document.getElementById("video_"+option);
 
-    gaTrack('video','click','ended',video_day);
+    gaTrack('video','view','ended_'+video_day,video_day);
 
     video.pause();
     video.currentTime = 0;
@@ -394,7 +394,7 @@ function play_video(current, day){
     option = current;
     video_day = day;
 
-    gaTrack('video','click','play',day);
+    gaTrack('video','click','play_'+day,day);
 
     var video = document.getElementById("video_" + option);    
     
